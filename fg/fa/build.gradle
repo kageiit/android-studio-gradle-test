@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile project(':fg:fe')
+
+    compile deps.external.gson
+    compile deps.test.robolectric
+
+    provided deps.support.annotations
+    provided deps.apt.androidApi
+}

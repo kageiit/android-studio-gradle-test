@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile project(':aj:ac')
+    compile project(':s')
+    compile project(':aj:ah')
+
+    apt deps.apt.bkCompiler
+
+    compile deps.apt.javaxInject
+    compile deps.support.annotations
+    compile deps.other.retrofit
+    compile deps.other.socket
+    compile deps.other.support
+    compile deps.other.firebase
+    compile deps.other.aws
+    testCompile deps.test.robolectric
+}

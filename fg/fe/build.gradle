@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    apt deps.apt.autoValueGson
+    apt deps.apt.autoValueParcel
+    apt deps.apt.daggerCompiler
+    apt deps.apt.bkCompiler
+
+    compile project (':d')
+    compile project (':e')
+    compile project (':aj:ae')
+    compile project (':aj:ad')
+    compile project (':aj:ac')
+    compile project (':aj:ag')
+    compile project (':h')
+    compile project (':j')
+    compile project (':l')
+    compile project (':n')
+    compile project (':ze')
+    compile project (':u')
+    compile project (':x')
+    compile project(':ee:eg')
+
+    compile deps.support.appCompat
+    compile deps.support.annotations
+    compile deps.support.v4
+    compile deps.external.dagger
+    compile deps.external.timber
+    compile deps.other.appcompat
+    compile deps.other.design
+    compile deps.other.location
+    compile deps.other.reactivenet
+    compile deps.other.exo
+    compile deps.other.fresco
+    compile deps.other.utils
+    compile deps.other.recyclerview
+    compile deps.other.rave
+    compile deps.other.butterknife
+
+    provided deps.apt.javax
+    provided deps.external.autovalue
+
+    testCompile project(':aj:ab')
+}

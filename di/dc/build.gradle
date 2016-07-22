@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+
+dependencies {
+    compile project(':di:dd')
+
+    compileOnly deps.support.annotations
+    compileOnly deps.apt.autoService
+    compileOnly deps.apt.androidApi
+
+    testCompile deps.support.annotations
+    testCompile deps.test.compileTesting
+    testCompile deps.test.robolectric
+    testCompile files("${System.properties['java.home']}/../lib/tools.jar")
+}

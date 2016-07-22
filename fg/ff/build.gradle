@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    apt deps.apt.bkCompiler
+    apt deps.apt.daggerCompiler
+    apt project(':di:de')
+    apt project(':di:dc')
+    compile project(':a')
+    compile project(':g')
+    compile project(':f')
+    compile project(':i')
+    compile project(':h')
+    compile project(':m')
+    compile project(':n')
+    compile project(':o')
+    compile project(':aj:ag')
+    compile project(':q')
+    compile project(':r')
+    compile project(':fg:fe')
+    compile project(':zd:zc')
+    compile project(':ee:ef')
+    compile project(':v')
+    compile project(':u')
+    compile project(':di:dh')
+    compile project(':di:da')
+    compile project(':ze')
+    compile project(':z')
+    compile deps.support.multidex
+    compile deps.external.gson
+    compile deps.other.javautil
+    compile deps.other.baiduSearch
+    compile deps.other.mapBaidu
+    compile deps.other.cast
+    compile deps.other.reactivenet
+    compile deps.other.firebase
+    compile deps.other.facebook
+    provided deps.apt.javax
+    testCompile project(':di:dh')
+    testCompile project(':fg:fa')
+    testCompile project(':aj:ab')
+    testCompile project(':di:dg')
+}

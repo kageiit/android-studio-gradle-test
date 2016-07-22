@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile project(':w')
+    compile deps.external.rxandroid
+}

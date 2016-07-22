@@ -1,0 +1,8 @@
+apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+
+dependencies {
+    compile deps.test.robolectric
+    compile deps.test.reflections
+    compile deps.support.annotations
+}

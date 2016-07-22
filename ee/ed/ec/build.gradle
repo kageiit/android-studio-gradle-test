@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    apt project(':di:de')
+    apt project(':di:dc')
+    apt deps.apt.bkCompiler
+    apt deps.apt.daggerCompiler
+
+    compile project(':aj:ag')
+    compile project(':ee:eg')
+    compile project(':ze')
+    compile project(':v');
+    compile deps.support.design
+    compile deps.external.dagger
+    compile deps.other.javautil
+
+    testCompile deps.test.robolectric
+    testCompile project(':aj:ab')
+    testCompile project(':di:dg')
+}

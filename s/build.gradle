@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    apt deps.apt.bkCompiler
+    apt deps.apt.raveCompiler
+
+    compile deps.support.annotations
+    compile deps.other.rave
+    compile deps.other.support
+    compile deps.external.rxjava
+    compile deps.other.firebase
+}

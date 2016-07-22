@@ -1,0 +1,119 @@
+def daggerVersion = '2.5'
+def leakCanaryVersion = '1.4-beta2'
+def stethoVersion = '1.3.0'
+def supportVersion = '24.0.0'
+def roasterVersion = '2.18.7.Final'
+
+def build = [
+        compileSdkVersion: 24,
+        minSdkVersion    : 15,
+        targetSdkVersion : 24,
+        buildToolsVersion: '24.0.0',
+]
+
+def support = [
+        annotations : "com.android.support:support-annotations:$supportVersion",
+        appCompat   : "com.android.support:appcompat-v7:$supportVersion",
+        cardView    : "com.android.support:cardview-v7:$supportVersion",
+        design      : "com.android.support:design:$supportVersion",
+        recyclerView: "com.android.support:recyclerview-v7:$supportVersion",
+        v4          : "com.android.support:support-v4:$supportVersion",
+        multidex    : 'com.android.support:multidex:1.0.1'
+]
+
+def apt = [
+        androidApi     : 'com.google.android:android:4.1.1.4',
+        autoCommon     : 'com.google.auto:auto-common:0.4',
+        autoService    : 'com.google.auto.service:auto-service:1.0-rc2',
+        autoValueGson  : 'com.ryanharter.auto.value:auto-value-gson:0.3.2-rc1',
+        autoValueParcel: 'com.ryanharter.auto.value:auto-value-parcel-adapter:0.2.3-rc2',
+        daggerCompiler : "com.google.dagger:dagger-compiler:$daggerVersion",
+        javax          : 'org.glassfish:javax.annotation:10.0-b28',
+        javaxInject    : 'javax.inject:javax.inject:1',
+        javapoet       : 'com.squareup:javapoet:1.7.0',
+        raveCompiler   : 'com.uber:rave-compiler:0.6.0',
+        bkCompiler     : 'com.jakewharton:butterknife-compiler:8.2.1',
+]
+
+def debug = [
+        leakCanary    : "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion",
+        leakCanaryNoop: "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion",
+        haha          : 'com.squareup.haha:haha:2.0.3',
+        stetho        : "com.facebook.stetho:stetho:$stethoVersion",
+        stethoOkHttp  : "com.facebook.stetho:stetho-okhttp:$stethoVersion"
+]
+
+def external = [
+        autovalue  : 'com.google.auto.value:auto-value:1.3-rc2',
+        calligraphy: 'uk.co.chrisjenx:calligraphy:2.2.0',
+        dagger     : "com.google.dagger:dagger:$daggerVersion",
+        gson       : 'com.google.code.gson:gson:2.6.2',
+        guava      : 'com.google.guava:guava:19.0',
+        picasso    : 'com.squareup.picasso:picasso:2.5.2',
+        timber     : 'com.jakewharton.timber:timber:4.1.2',
+        roasterApi : "org.jboss.forge.roaster:roaster-api:$roasterVersion",
+        roasterJdt : "org.jboss.forge.roaster:roaster-jdt:$roasterVersion",
+        rxandroid  : 'io.reactivex:rxandroid:1.2.1',
+        rxbinding  : 'com.jakewharton.rxbinding:rxbinding:0.4.0',
+        rxjava     : 'io.reactivex:rxjava:1.1.6',
+        rxlifecycle: 'com.trello:rxlifecycle:0.6.1',
+        rxrelay    : 'com.jakewharton.rxrelay:rxrelay:1.1.0'
+]
+
+def test = [
+        assertJ       : 'org.assertj:assertj-core:3.0.0',
+        compileTesting: 'com.google.testing.compile:compile-testing:0.9',
+        dexmaker      : 'com.google.dexmaker:dexmaker-mockito:1.2',
+        junit         : 'junit:junit:4.12',
+        mockito       : 'org.mockito:mockito-core:1.9.5',
+        powermock     : "org.powermock:powermock-api-mockito:1.6.2",
+        reflections   : "org.reflections:reflections:0.9.10",
+        robolectric   : "org.robolectric:android-all:5.0.0_r2-robolectric-1",
+        uiautomator   : 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1',
+        slf4j         : 'org.slf4j:slf4j-log4j12:1.7.5',
+]
+
+def other = [
+        appcompat            : 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0',
+        design               : 'com.jakewharton.rxbinding:rxbinding-design:0.4.0',
+        recyclerview         : 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0',
+        leanback             : 'com.jakewharton.rxbinding:rxbinding-leanback-v17:0.4.0',
+        crittercism          : 'com.crittercism:crittercism-android-agent:5.6.4',
+        geo                  : 'com.cocoahero.android:geojson:1.0.1',
+        location             : 'com.google.android.gms:play-services-location:9.2.1',
+        googleMap            : 'com.google.android.gms:play-services-maps:9.2.1',
+        locationServiceGoogle: 'com.google.android.gms:play-services-places:9.2.1',
+        locationServiceBaidu : 'com.baidu.mapapi:location:6.13',
+        baiduSearch          : "com.baidu.mapapi:search:3.7.1",
+        mapBaidu             : "com.baidu.mapapi:map:3.7.1",
+        reactivenet          : 'com.github.pwittchen:reactivenetwork:0.4.0',
+        exo                  : 'com.google.android.exoplayer:exoplayer:r1.5.9',
+        cast                 : "com.google.android.gms:play-services-cast:9.2.1",
+        firebase             : "com.firebase:firebase-client-android:2.5.2",
+        aws                  : "com.amazonaws:aws-java-sdk:1.11.18",
+        retrofit             : 'com.squareup.retrofit2:retrofit:2.1.0',
+        socket               : 'io.socket:socket.io-client:0.7.0',
+        rave                 : 'com.uber:rave:0.6.0',
+        support              : 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0',
+        fresco               : 'com.facebook.fresco:fresco:0.11.0',
+        butterknife          : 'com.jakewharton:butterknife:8.2.1',
+        mvp                  : 'com.hannesdorfmann.mosby:mvp:2.0.1',
+        espresso             : "com.android.support.test.espresso:espresso-core:2.2.2",
+        burst                : "com.squareup.burst:burst-junit4:1.1.0",
+        reflections          : 'org.reflections:reflections:0.9.10',
+        facebook             : 'com.facebook.android:facebook-android-sdk:4.14.0',
+        utils                : 'net.the4thdimension:android-utils:2.0.4',
+        materialDesign       : 'com.github.navasmdc:MaterialDesign:1.5@aar',
+        blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
+        javautil             : 'com.cedarsoftware:java-util:1.24.0',
+]
+
+ext.deps = [
+        "apt"     : apt,
+        "build"   : build,
+        "debug"   : debug,
+        "external": external,
+        "support" : support,
+        "test"    : test,
+        "other"   : other
+]

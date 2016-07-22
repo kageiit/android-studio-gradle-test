@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    apt deps.apt.bkCompiler
+
+    compile project(':fg:fe')
+    compile deps.other.firebase
+    compile deps.other.reflections
+    compile deps.other.location
+
+    testCompile deps.test.robolectric
+}

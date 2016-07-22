@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    defaultConfig {
+        multiDexEnabled true
+    }
+}
+
+dependencies {
+    apt deps.apt.bkCompiler
+    apt deps.apt.daggerCompiler
+    apt project(':di:de')
+    apt project(':di:dc')
+    compile project(':n')
+    compile project(':o')
+    compile project(':aj:ag')
+    compile project(':fg:fe')
+    compile project(':v');
+    compile project(':u')
+    compile project(':di:dh')
+    compile deps.support.multidex
+    compile deps.external.gson
+    compile deps.other.facebook
+    compile deps.other.materialDesign
+    provided deps.apt.javax
+    testCompile project(':aj:ab')
+    testCompile project(':fg:fa')
+    testCompile project(':di:dg')
+    testCompile deps.test.robolectric
+}

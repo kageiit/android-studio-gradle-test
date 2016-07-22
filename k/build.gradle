@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+
+dependencies {
+    apt deps.apt.bkCompiler
+
+    compileOnly deps.support.annotations
+
+    compile deps.apt.autoCommon
+    compile deps.external.roasterApi
+    compile deps.external.roasterJdt
+    compile deps.other.butterknife
+
+    testCompile deps.support.annotations
+    testCompile deps.test.assertJ
+    testCompile deps.test.robolectric
+}

@@ -1,0 +1,13 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    releaseCompile project(':fg:fb')
+    debugCompile project(':fg:fd')
+}
+
+android {
+    defaultConfig {
+        multiDexEnabled true
+    }
+}

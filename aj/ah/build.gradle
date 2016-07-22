@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    provided deps.support.annotations
+
+    compile deps.apt.javaxInject
+    compile deps.external.rxjava
+    compile deps.other.support
+
+    testCompile project(':aj:aa')
+}

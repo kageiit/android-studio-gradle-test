@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile deps.support.annotations
+    compile deps.support.design
+    compile deps.external.timber
+    compile deps.other.materialDesign
+
+    testCompile project(':aj:ab')
+}

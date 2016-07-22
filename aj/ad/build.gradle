@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile deps.other.googleMap
+    compile deps.other.baiduSearch
+    compile deps.other.mapBaidu
+
+    testCompile deps.test.robolectric
+}

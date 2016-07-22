@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    apt deps.apt.daggerCompiler
+
+    compile project(':d')
+    compile project(':e')
+    compile project(':j')
+    compile project(':s')
+    compile project(':ze')
+
+    compile project(':m')
+    compile project(':s')
+    compile project(':ze')
+    compile deps.external.dagger
+
+    provided deps.apt.javax
+    provided deps.external.autovalue
+
+    testCompile project(':aj:ab')
+}

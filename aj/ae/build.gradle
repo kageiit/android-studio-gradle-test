@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+dependencies {
+    compile deps.other.geo
+    compile deps.external.rxjava
+
+    testCompile deps.test.robolectric
+}
