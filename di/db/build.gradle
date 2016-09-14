@@ -22,7 +22,7 @@ dependencies {
     compile deps.support.multidex
     compile deps.external.gson
     compile deps.other.facebook
-    compile deps.other.materialDesign
+    compile deps.other.permissionGen
     provided deps.apt.javax
     testCompile project(':aj:ab')
     testCompile project(':fg:fa')

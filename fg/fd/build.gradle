@@ -7,6 +7,10 @@ dependencies {
     compile project(':y')
     compile deps.debug.leakCanary
     compile deps.debug.haha
-    compile deps.debug.stetho
-    compile deps.debug.stethoOkHttp
+    compile (deps.debug.stetho) {
+    	exclude group: "com.google.code.findbugs"
+    }
+    compile (deps.debug.stethoOkHttp) {
+    	exclude group: "com.google.code.findbugs"
+    }
 }

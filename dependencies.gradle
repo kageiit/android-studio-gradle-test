@@ -6,7 +6,7 @@ def roasterVersion = '2.18.7.Final'
 
 def build = [
         compileSdkVersion: 24,
-        minSdkVersion    : 15,
+        minSdkVersion    : 17,
         targetSdkVersion : 24,
         buildToolsVersion: '24.0.0',
 ]
@@ -57,7 +57,8 @@ def external = [
         rxbinding  : 'com.jakewharton.rxbinding:rxbinding:0.4.0',
         rxjava     : 'io.reactivex:rxjava:1.1.6',
         rxlifecycle: 'com.trello:rxlifecycle:0.6.1',
-        rxrelay    : 'com.jakewharton.rxrelay:rxrelay:1.1.0'
+        rxrelay    : 'com.jakewharton.rxrelay:rxrelay:1.1.0',
+        shuffle    : 'com.meetic.shuffle:shuffle:1.0.8'
 ]
 
 def test = [
@@ -67,7 +68,7 @@ def test = [
         junit         : 'junit:junit:4.12',
         mockito       : 'org.mockito:mockito-core:1.9.5',
         powermock     : "org.powermock:powermock-api-mockito:1.6.2",
-        reflections   : "org.reflections:reflections:0.9.10",
+        reflections   : "org.hamcrest:hamcrest-junit:2.0.0.0",
         robolectric   : "org.robolectric:android-all:5.0.0_r2-robolectric-1",
         uiautomator   : 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1',
         slf4j         : 'org.slf4j:slf4j-log4j12:1.7.5',
@@ -102,8 +103,8 @@ def other = [
         burst                : "com.squareup.burst:burst-junit4:1.1.0",
         reflections          : 'org.reflections:reflections:0.9.10',
         facebook             : 'com.facebook.android:facebook-android-sdk:4.14.0',
-        utils                : 'net.the4thdimension:android-utils:2.0.4',
-        materialDesign       : 'com.github.navasmdc:MaterialDesign:1.5@aar',
+        utils                : 'com.facebook.fresco:fresco:0.13.0',
+        permissionGen        : 'com.lovedise:permissiongen:0.0.6',
         blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
         javautil             : 'com.cedarsoftware:java-util:1.24.0',
 ]

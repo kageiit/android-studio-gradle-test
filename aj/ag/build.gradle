@@ -10,7 +10,7 @@ dependencies {
     compile deps.support.annotations
     compile deps.other.reflections
     compile deps.other.facebook
-    compile deps.other.materialDesign
+    compile deps.other.permissionGen
     compile deps.external.calligraphy
     compile deps.external.picasso
 

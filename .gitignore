@@ -4,3 +4,8 @@ local.properties
 *.iml
 build
 .DS_Store
+.buckconfig.local
+.okbuck
+BUCK
+.buckd
+buck-out

@@ -5,7 +5,7 @@ dependencies {
     compile deps.support.annotations
     compile deps.support.design
     compile deps.external.timber
-    compile deps.other.materialDesign
+    compile deps.other.permissionGen
 
     testCompile project(':aj:ab')
 }
