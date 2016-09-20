@@ -24,4 +24,6 @@ brew install watchman ant
 
 ## Incremental build comparision
 
-An example use case would be to uncomment line 7 in `e/build.gradle` to check the effect of a new dependency as part of an incremental build.
+Uncomment line 7 in `e/build.gradle` to check the effect of an ABI incompatible change in an incremental build.
+
+Modify the `onReceive` method of the `TestReceiver` class in the `e` module, to check the effect of an ABI compatible change in an incremental build.
