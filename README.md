@@ -3,6 +3,8 @@ A test project with a structure to stress test and find out issues in Android St
 
 Also provides an alternative build path using [Buck](https://buckbuild.com/) to compare. For more details on how the buck build path is setup, please see [OkBuck](https://github.com/OkBuilds/OkBuck)
 
+[![Master branch build status](https://travis-ci.org/kageiit/android-studio-gradle-test.svg?branch=master)](https://travis-ci.org/kageiit/android-studio-gradle-test)
+
 ## To build all apps with gradle:
 ```bash
 ./gradlew assemble
