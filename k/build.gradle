@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'net.ltgt.apt'
 
 dependencies {
-    apt deps.apt.bkCompiler
+    apt deps.apt.daggerCompiler
 
     compileOnly deps.support.annotations
 

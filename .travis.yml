@@ -19,10 +19,12 @@ android:
 before_script:
   - export PATH=$PATH:$HOME/.gradle/caches/okbuck/buck/bin
 
+env:
+  - BUILD_COMMAND="./buildWithBuck"
+  - BUILD_COMMAND="./buildWithGradle"
+
 script:
-  - ./gradlew assemble
-  - ./buckw --version
-  - buck query "kind('android_binary', '//...')" | xargs buck build
+  - exec "$BUILD_COMMAND"
 
 notifications:
   email: false

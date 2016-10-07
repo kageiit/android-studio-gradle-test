@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./buckw --version
+buck query "kind('android_binary', '//...')" | xargs buck build
