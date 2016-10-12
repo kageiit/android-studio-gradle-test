@@ -26,9 +26,3 @@ Installation instructions for: [Ant](http://ant.apache.org/), [Watchman](https:/
 ```bash
 ./buildWithBuck
 ```
-
-## Incremental build comparision
-
-Uncomment line 7 in `e/build.gradle` to check the effect of an ABI incompatible change in an incremental build.
-
-Modify the `onReceive` method of the `TestReceiver` class in the `e` module, to check the effect of an ABI compatible change in an incremental build.
