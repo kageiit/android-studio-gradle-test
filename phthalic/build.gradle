@@ -1,0 +1,18 @@
+apply plugin: 'com.android.application'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    debugCompile project(':Padraig:arbitrate')
+    releaseCompile project(':Padraig:cuminoin')
+
+    testCompile project(':outissue:cyclus')
+
+    compile project(':outissue:oleometer')
+
+    androidTestApt deps.apt.daggerCompiler
+
+    androidTestCompile project(':outissue:embrace')
+    androidTestCompile project(':outissue:oleometer')
+
+    androidTestCompile deps.test.dexmaker
+    androidTestCompile deps.test.uiautomator
+    androidTestCompile deps.test.screenshot
+}

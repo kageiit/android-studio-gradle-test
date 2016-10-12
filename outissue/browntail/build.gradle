@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+
+    compile project(':outissue:proctoral')
+    compile project(':outissue:nutate')
+
+    testCompile deps.other.leanback
+}

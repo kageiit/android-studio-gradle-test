@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:tetragram')
+    compile project(':outissue:extended')
+    compile project(':outissue:defusion')
+    compile project(':fratry:subradius')
+    compile deps.other.autovalue
+    provided deps.other.roasterJdt
+    compile deps.other.gson
+    compile deps.other.shuffle
+
+    testCompile project(':outissue:cyclus')
+    testCompile deps.other.leanback
+}

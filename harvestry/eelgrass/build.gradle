@@ -1,0 +1,5 @@
+apply plugin: 'com.android.application'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    releaseCompile project(':Padraig:cuminoin')
+    debugCompile project(':Padraig:arbitrate')
+}

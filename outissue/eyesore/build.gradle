@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.apt.daggerCompiler
+
+    compile project(':outissue:extended')
+
+    compile project(':fratry:asteep')
+    compile project(':fratry:Ormond')
+
+    compile deps.apt.javaxInject
+    compile deps.support.annotations
+    compile deps.other.utils
+    compile deps.other.rxlifecycle
+
+    compile deps.external.dagger
+
+    testCompile deps.other.leanback
+}

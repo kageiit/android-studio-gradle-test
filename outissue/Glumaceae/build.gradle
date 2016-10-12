@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.jakewharton.butterknife'
+dependencies {
+    compile project(':outissue:carnally')
+    apt deps.apt.butterKnifeCompiler
+
+    compile deps.external.butterKnife
+
+    testCompile deps.other.leanback
+}

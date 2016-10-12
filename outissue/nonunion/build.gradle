@@ -1,0 +1,6 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:extended')
+    compile project(':outissue:caricetum:midship')
+    compile project(':outissue:caricetum:skiapod')
+}

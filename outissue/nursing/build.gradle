@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    // safe libraries as they are compile time checked.
+    compile deps.support.annotations
+    apt deps.other.recyclerview
+    compile deps.other.appcompat
+
+    // required for serializing json.
+    compile deps.external.gson
+
+    // used for getting device information.
+    compile deps.other.googleMap
+
+    // temporary include until we move all models from android-crash and remove application dependency to the
+    // old crash reporter.
+    compile deps.other.rave
+
+    testCompile project(':outissue:cyclus')
+}

@@ -1,0 +1,13 @@
+apply plugin: 'java'
+dependencies {
+    compile deps.external.rxrelay
+    compile deps.external.rxjava
+    compile deps.other.geo
+
+    compileOnly deps.support.annotations
+    compileOnly deps.apt.androidApi
+
+    testCompile deps.other.leanback
+    testCompile deps.apt.androidApi
+    testCompile deps.support.annotations
+}

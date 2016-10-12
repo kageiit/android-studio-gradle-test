@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt project(':outissue:caricetum:handbolt')
+    apt project(':outissue:caricetum:Chelura')
+    apt deps.other.recyclerview
+    apt deps.apt.daggerCompiler
+
+    compile project(':subvola:papistry')
+    compile project(':outissue:extended')
+    compile project(':outissue:stupendly')
+    compile project(':outissue:carnally')
+    compile project(':fratry:asteep')
+    compile project(':fratry:subradius')
+    compile project(':fratry:halsen')
+    compile deps.support.design
+
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:caricetum:hermetic')
+}

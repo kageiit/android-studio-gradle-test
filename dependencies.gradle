@@ -1,0 +1,195 @@
+def versions = [
+        androidToolsVersion: '25.1.0',
+        butterKnifeVersion : '8.4.0',
+        daggerVersion      : '2.7',
+        leakCanaryVersion  : '1.4',
+        playServicesVersion: '9.6.1',
+        roasterVersion     : '2.18.7.Final',
+        stethoVersion      : '1.4.0',
+        supportVersion     : '24.2.1',
+]
+
+def buildConfig = [
+        compileSdkVersion: 24,
+        minSdkVersion    : 16,
+        targetSdkVersion : 24,
+        buildToolsVersion: '24.0.2',
+]
+
+def android = [
+        lint      : "com.android.tools.lint:lint:${versions.androidToolsVersion}",
+        lintApi   : "com.android.tools.lint:lint-api:${versions.androidToolsVersion}",
+        lintChecks: "com.android.tools.lint:lint-checks:${versions.androidToolsVersion}",
+        lintTests : "com.android.tools.lint:lint-tests:${versions.androidToolsVersion}",
+        testUtils : "com.android.tools:testutils:${versions.androidToolsVersion}"
+]
+
+def apt = [
+        androidApi          : 'com.google.android:android:4.1.1.4',
+        autoCommon          : 'com.google.auto:auto-common:0.4',
+        autoService         : 'com.google.auto.service:auto-service:1.0-rc2',
+        autoValue           : 'com.google.auto.value:auto-value:1.3-rc2',
+        autoValueAnnotations: 'com.jakewharton.auto.value:auto-value-annotations:1.2-update1',
+        butterKnifeCompiler : "com.jakewharton:butterknife-compiler:${versions.butterKnifeVersion}",
+        daggerCompiler      : "com.google.dagger:dagger-compiler:${versions.daggerVersion}",
+        javax               : 'javax.inject:javax.inject:1',
+        javaxInject         : 'javax.inject:javax.inject:1',
+        javapoet            : 'com.squareup:javapoet:1.7.0',
+]
+
+def debug = [
+        leakCanary    : "com.squareup.leakcanary:leakcanary-android:${versions.leakCanaryVersion}",
+        leakCanaryNoop: "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakCanaryVersion}",
+        haha          : 'com.squareup.haha:haha:2.0.3',
+        stetho        : "com.facebook.stetho:stetho:${versions.stethoVersion}",
+        stethoOkHttp  : "com.facebook.stetho:stetho-okhttp:${versions.stethoVersion}",
+        stethoTimber  : "com.facebook.stetho:stetho-timber:${versions.stethoVersion}"
+]
+
+def external = [
+        alipay         : 'com.alipay:login:1.0.0',
+        android        : 'com.google.android:android:4.1.1.4',
+        braintree      : 'com.braintreepayments:encryption:2.1.0',
+        braintreesdk   : 'com.braintreepayments.api:braintree:2.3.6',
+        butterKnife    : "com.jakewharton:butterknife:${versions.butterKnifeVersion}",
+        calligraphy    : 'uk.co.chrisjenx:calligraphy:2.2.0',
+        dagger         : "com.google.dagger:dagger:${versions.daggerVersion}",
+        deviceYearClass: 'com.facebook.device.yearclass:yearclass:1.0.1',
+        gson           : 'com.google.code.gson:gson:2.7',
+        jose4j         : 'org.bitbucket.b_c:jose4j:0.5.0',
+        kryo           : 'com.esotericsoftware.kryo:kryo:2.24.0',
+        okio           : 'com.squareup.okio:okio:1.6.0',
+        picasso        : 'com.squareup.picasso:picasso:2.5.2',
+        scrollbar      : 'com.futuremind.recyclerfastscroll:fastscroll:0.2.4',
+        timber         : 'com.jakewharton.timber:timber:4.1.2',
+        roasterApi     : "org.jboss.forge.roaster:roaster-api:${versions.roasterVersion}",
+        roasterJdt     : "org.jboss.forge.roaster:roaster-jdt:${versions.roasterVersion}",
+        retrofit       : 'com.squareup.retrofit:retrofit:1.9.0',
+        rxandroid      : 'io.reactivex:rxandroid:1.2.1',
+        rxbinding      : 'com.jakewharton.rxbinding:rxbinding:0.4.0',
+        rxjava         : 'io.reactivex:rxjava:1.1.8',
+        rxjavaasync    : 'io.reactivex:rxjava-async-util:0.21.0',
+        rxlifecycle    : 'com.trello:rxlifecycle:0.6.1',
+        rxrelay        : 'com.jakewharton.rxrelay:rxrelay:1.1.0',
+        slf4jApi       : 'org.slf4j:slf4j-api:1.7.5',
+        transition     : "com.andkulikov:transitionseverywhere:1.6.9"
+]
+
+def playServices = [
+        wallet  : "com.google.android.gms:play-services-wallet:${versions.playServicesVersion}",
+        gcm     : "com.google.android.gms:play-services-gcm:${versions.playServicesVersion}",
+        location: "com.google.android.gms:play-services-location:${versions.playServicesVersion}",
+        maps    : "com.google.android.gms:play-services-maps:${versions.playServicesVersion}"
+]
+
+def v4Split = [
+        compat   : "com.android.support:support-compat:${versions.supportVersion}",
+        coreUi   : "com.android.support:support-core-ui:${versions.supportVersion}",
+        coreUtils: "com.android.support:support-core-utils:${versions.supportVersion}",
+        fragment : "com.android.support:support-fragment:${versions.supportVersion}",
+]
+
+def support = [
+        annotations : "com.android.support:support-annotations:${versions.supportVersion}",
+        appCompat   : "com.android.support:appcompat-v7:${versions.supportVersion}",
+        cardView    : "com.android.support:cardview-v7:${versions.supportVersion}",
+        compat      : v4Split.compat,
+        coreUi      : v4Split.coreUi,
+        coreUtils   : v4Split.coreUtils,
+        design      : "com.android.support:design:${versions.supportVersion}",
+        recyclerView: "com.android.support:recyclerview-v7:${versions.supportVersion}",
+        v4          : [
+                v4Split.compat,
+                v4Split.coreUi,
+                v4Split.coreUtils,
+                v4Split.fragment
+        ],
+        multidex    : 'com.android.support:multidex:1.0.1'
+]
+
+def test = [
+        assertJ       : 'org.assertj:assertj-core:1.7.1',
+        compileTesting: 'com.google.testing.compile:compile-testing:0.9',
+        dexmaker      : 'com.google.dexmaker:dexmaker-mockito:1.2',
+        junit         : 'junit:junit:4.12',
+        mockito       : 'org.mockito:mockito-core:1.10.19',
+        opentracing   : 'io.opentracing:opentracing-impl:0.13.0',
+        uiautomator   : 'com.android.support.test.uiautomator:uiautomator-v18:2.1.1',
+        slf4j         : 'org.slf4j:slf4j-log4j12:1.7.5',
+        screenshot    : 'com.facebook.testing.screenshot:core:0.2.3',
+]
+
+def other = [
+        appcompat            : 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0',
+        design               : 'com.jakewharton.rxbinding:rxbinding-design:0.4.0',
+        recyclerview         : 'com.jakewharton.rxbinding:rxbinding-recyclerview-v7:0.4.0',
+        leanback             : 'com.jakewharton.rxbinding:rxbinding-leanback-v17:0.4.0',
+        crittercism          : 'com.crittercism:crittercism-android-agent:5.6.4',
+        geo                  : 'com.cocoahero.android:geojson:1.0.1',
+        location             : "com.google.android.gms:play-services-location:${versions.playServicesVersion}",
+        googleMap            : "com.google.android.gms:play-services-maps:${versions.playServicesVersion}",
+        locationServiceGoogle: "com.google.android.gms:play-services-places:${versions.playServicesVersion}",
+        mapbox               : "com.mapbox.mapboxsdk:mapbox-android-sdk:4.2.0-beta.3@aar",
+        reactivenet          : 'com.github.pwittchen:reactivenetwork:0.4.0',
+        exo                  : 'com.google.android.exoplayer:exoplayer:r1.5.9',
+        cast                 : "com.google.android.gms:play-services-cast:${versions.playServicesVersion}",
+        firebase             : "com.firebase:firebase-client-android:2.5.2",
+        aws                  : "com.amazonaws:aws-java-sdk:1.11.18",
+        retrofit             : 'com.squareup.retrofit2:retrofit:2.1.0',
+        socket               : 'io.socket:socket.io-client:0.7.0',
+        rave                 : 'com.uber:rave:0.6.0',
+        support              : 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0',
+        fresco               : 'com.facebook.fresco:fresco:0.11.0',
+        butterknife          : 'com.jakewharton:butterknife:8.2.1',
+        mvp                  : 'com.hannesdorfmann.mosby:mvp:2.0.1',
+        espresso             : "com.android.support.test.espresso:espresso-core:2.2.2",
+        burst                : "com.squareup.burst:burst-junit4:1.1.0",
+        reflections          : 'org.reflections:reflections:0.9.10',
+        facebook             : 'com.facebook.android:facebook-android-sdk:4.14.0',
+        utils                : 'com.facebook.fresco:fresco:0.13.0',
+        permissionGen        : 'com.lovedise:permissiongen:0.0.6',
+        blockcanary          : 'com.github.moduth:blockcanary-android:1.2.1',
+        javautil             : 'com.cedarsoftware:java-util:1.24.0',
+        autovalue            : 'com.google.auto.value:auto-value:1.3-rc2',
+        calligraphy          : 'uk.co.chrisjenx:calligraphy:2.2.0',
+        dagger               : "com.google.dagger:dagger:${versions.daggerVersion}",
+        gson                 : 'com.google.code.gson:gson:2.6.2',
+        guava                : 'com.google.guava:guava:19.0',
+        picasso              : 'com.squareup.picasso:picasso:2.5.2',
+        timber               : 'com.jakewharton.timber:timber:4.1.2',
+        roasterApi           : "org.jboss.forge.roaster:roaster-api:${versions.roasterVersion}",
+        roasterJdt           : "org.jboss.forge.roaster:roaster-jdt:${versions.roasterVersion}",
+        rxandroid            : 'io.reactivex:rxandroid:1.2.1',
+        rxbinding            : 'com.jakewharton.rxbinding:rxbinding:0.4.0',
+        rxjava               : 'io.reactivex:rxjava:1.1.6',
+        rxlifecycle          : 'com.trello:rxlifecycle:0.6.1',
+        rxrelay              : 'com.jakewharton.rxrelay:rxrelay:1.1.0',
+        shuffle              : 'com.meetic.shuffle:shuffle:1.0.8',
+        androidApi           : 'com.google.android:android:4.1.1.4',
+        autoCommon           : 'com.google.auto:auto-common:0.4',
+        autoService          : 'com.google.auto.service:auto-service:1.0-rc2',
+        autoValueGson        : 'com.ryanharter.auto.value:auto-value-gson:0.3.2-rc1',
+        autoValueParcel      : 'com.ryanharter.auto.value:auto-value-parcel-adapter:0.2.3-rc2',
+        daggerCompiler       : "com.google.dagger:dagger-compiler:${versions.daggerVersion}",
+        javax                : 'org.glassfish:javax.annotation:10.0-b28',
+        javaxInject          : 'javax.inject:javax.inject:1',
+        javapoet             : 'com.squareup:javapoet:1.7.0',
+        raveCompiler         : 'com.uber:rave-compiler:0.6.0',
+        bkCompiler           : 'com.jakewharton:butterknife-compiler:8.2.1',
+]
+
+ext.config = [
+        "build": buildConfig
+]
+
+ext.deps = [
+        "android"     : android,
+        "apt"         : apt,
+        "debug"       : debug,
+        "external"    : external,
+        "other"       : other,
+        "playServices": playServices,
+        "support"     : support,
+        "test"        : test,
+        "versions"    : versions
+]

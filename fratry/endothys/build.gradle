@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':Padraig:ratafee')
+    compile project(':outissue:extended')
+
+    apt deps.other.recyclerview
+    apt deps.apt.daggerCompiler
+
+    compile deps.other.butterknife
+    compile deps.other.utils
+    compile deps.other.butterknife
+    compile deps.other.autoValueGson
+
+    compile deps.external.rxjava
+    compile deps.external.rxrelay
+    compile deps.external.dagger
+
+    compile deps.support.annotations
+    compile deps.support.v4
+
+    compile deps.other.reactivenet
+
+    testApt deps.apt.daggerCompiler
+    testCompile project(':outissue:cyclus')
+    testCompile deps.other.reactivenet
+}

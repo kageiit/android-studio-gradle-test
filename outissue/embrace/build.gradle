@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile deps.other.leanback
+
+    compile deps.support.compat
+    compile project(":outissue:proctoral")
+}

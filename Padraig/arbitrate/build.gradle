@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:synarchy')
+    compile project(':Padraig:follicle')
+
+    compile deps.debug.leakCanary
+    compile deps.debug.haha
+    compile deps.other.crittercism
+    compile deps.debug.stetho
+    compile deps.debug.stethoOkHttp
+    compile deps.debug.stethoTimber
+}

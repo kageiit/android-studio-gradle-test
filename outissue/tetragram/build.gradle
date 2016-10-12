@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile deps.support.annotations
+
+    compile deps.other.exo
+    compile deps.other.crittercism
+    compile deps.other.googleMap
+
+    testCompile project(':outissue:cyclus')
+}

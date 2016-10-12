@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    provided deps.support.annotations
+
+    compile deps.external.rxjava
+    compile deps.other.geo
+    compile project(':outissue:caricetum:midship')
+
+    testCompile project(':outissue:cyclus')
+}

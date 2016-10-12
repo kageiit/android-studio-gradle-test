@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.other.recyclerview
+    apt deps.apt.daggerCompiler
+    compile deps.external.dagger
+    compile deps.other.rxlifecycle
+    compile deps.other.locationServiceGoogle
+    compile project(':outissue:tetragram')
+    compile project(':outissue:stupendly')
+    compile project(':outissue:tristate')
+    compile project(':outissue:carnally')
+    compile project(':fratry:savory')
+    compile project(':fratry:Ormond')
+    compile project(':fratry:matchy')
+    compile project(':fratry:subradius')
+    compile project(':fratry:crapple')
+    compile project(':outissue:edictally')
+
+    testCompile project(':outissue:cyclus')
+}

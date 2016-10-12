@@ -1,0 +1,17 @@
+apply plugin: 'java'
+dependencies {
+
+    compile deps.apt.autoCommon
+    compile deps.external.dagger
+    compile deps.apt.javapoet
+    compile deps.other.geo
+
+    compile project (':outissue:caricetum:concher')
+
+    compileOnly deps.support.annotations
+    compileOnly deps.apt.autoService
+    compileOnly deps.apt.androidApi
+
+    testCompile deps.test.compileTesting
+    testCompile deps.other.leanback
+}

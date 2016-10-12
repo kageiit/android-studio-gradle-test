@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile deps.other.javautil
+    compile deps.other.autovalue
+
+    testCompile deps.other.leanback
+}

@@ -1,0 +1,20 @@
+apply plugin: 'com.android.application'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.other.recyclerview
+    apt deps.apt.daggerCompiler
+    apt project(':outissue:caricetum:handbolt')
+    apt project(':outissue:caricetum:Chelura')
+    compile project(':outissue:stupendly')
+    compile project(':outissue:caricetum:midship')
+    compile project(':outissue:situla')
+    compile project(':outissue:aricine')
+    compile project(':outissue:carnally')
+    compile deps.support.multidex
+    compile deps.external.gson
+    compile deps.other.utils
+    compile deps.other.location
+    compile deps.other.locationServiceGoogle
+    provided deps.apt.javax
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:caricetum:hermetic')
+}

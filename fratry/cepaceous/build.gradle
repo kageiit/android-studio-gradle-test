@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.apt.daggerCompiler
+    apt deps.other.appcompat
+
+    apt project(':outissue:caricetum:handbolt')
+    apt project(':outissue:caricetum:Chelura')
+
+    compile project(':outissue:tetragram')
+    compile project(':outissue:extended')
+    compile project(':outissue:caricetum:midship')
+    compile project(':outissue:carnally')
+    compile project(':fratry:halsen')
+    compile project(':fratry:Ormond')
+    compile project(':fratry:subradius')
+    compile project(':fratry:crapple')
+
+    compile deps.external.dagger
+    compile deps.other.geo
+    compile deps.other.exo
+    compile deps.other.javaxInject
+
+    provided deps.apt.javax
+
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:caricetum:hermetic')
+}

@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.apt.daggerCompiler
+    compile project(':fratry:asteep')
+    compile project(':fratry:Krapina')
+    compile project(':fratry:endothys')
+    compile project(':fratry:Ormond')
+    compile project(':fratry:subradius')
+
+    compile project(':outissue:extended')
+    compile deps.apt.javaxInject
+    compile deps.support.annotations
+    compile deps.other.rxlifecycle
+    compile deps.other.rxrelay
+    compile deps.other.bkCompiler
+
+    compile deps.external.dagger
+    compile deps.external.timber
+
+    testCompile deps.other.leanback
+}

@@ -1,0 +1,6 @@
+apply plugin: 'java'
+dependencies {
+    compile deps.other.leanback
+    compile deps.other.mapbox
+    compile deps.support.annotations
+}

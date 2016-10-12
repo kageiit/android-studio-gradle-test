@@ -1,0 +1,7 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:ergamine')
+    compile deps.external.rxandroid
+    compile deps.other.geo
+    compile deps.other.cast
+}

@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:nutate')
+    compile project(':outissue:tristate')
+    compile project(':fratry:matchy')
+
+    apt deps.other.recyclerview
+    apt deps.other.appcompat
+
+    compile deps.apt.javaxInject
+    compile deps.support.annotations
+    compile deps.other.rxlifecycle
+    compile deps.other.rxrelay
+    compile deps.other.javaxInject
+    compile deps.other.raveCompiler
+    compile deps.other.utils
+    compile deps.other.design
+    compile deps.other.crittercism
+
+    testCompile project(':outissue:browntail')
+    testCompile project(':outissue:cyclus')
+}

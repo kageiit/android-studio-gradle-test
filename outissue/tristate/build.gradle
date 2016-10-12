@@ -1,0 +1,9 @@
+apply plugin: 'java'
+dependencies {
+    compile deps.external.rxjava
+    compile deps.external.rxrelay
+    compile deps.support.annotations
+    compile deps.other.geo
+
+    testCompile project(':outissue:unseethed')
+}

@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile deps.support.annotations
+    compile deps.support.appCompat
+    compile deps.external.rxjava
+
+    compile deps.other.crittercism
+    compile deps.other.geo
+
+    provided deps.apt.javax
+
+    testCompile project(':outissue:cyclus')
+}

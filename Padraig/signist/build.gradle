@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':Padraig:ratafee')
+    compile project(':outissue:nutate')
+    compile project(':outissue:extended')
+    compile deps.external.timber
+
+    testCompile project(':outissue:browntail')
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:caricetum:hermetic')
+    testCompile project(':outissue:caricetum:scientist')
+}
