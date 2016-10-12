@@ -1,0 +1,16 @@
+apply plugin: 'com.android.application'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.apt.daggerCompiler
+    apt project(':outissue:caricetum:handbolt')
+
+    provided deps.apt.javax
+
+    compile project(':outissue:stupendly')
+    compile project(':outissue:caricetum:midship')
+    compile project(':outissue:aricine')
+    compile project(':outissue:proctoral')
+    compile project(':outissue:airified')
+    compile project(':outissue:carnally')
+    compile deps.support.multidex
+    compile deps.other.crittercism
+}

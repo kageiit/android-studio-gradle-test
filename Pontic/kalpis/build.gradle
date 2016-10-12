@@ -1,0 +1,12 @@
+apply plugin: 'java'
+dependencies {
+    compile project(':Pontic:Yemenic')
+    compile deps.apt.autoService
+    compile deps.external.gson
+    compile deps.other.guava
+    compile deps.support.annotations
+
+    testCompile deps.test.compileTesting
+    testCompile deps.other.leanback
+    testCompile files(org.gradle.internal.jvm.Jvm.current().getToolsJar())
+}

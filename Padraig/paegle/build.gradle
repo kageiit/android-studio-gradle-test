@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+  compile project(':outissue:worldway')
+  compile project(':outissue:stupendly')
+  compile project(':fratry:Ormond')
+
+  compile deps.external.timber
+  compile deps.support.annotations
+  compile deps.other.dagger
+  compile deps.other.crittercism
+
+  testCompile project(':outissue:cyclus')
+}

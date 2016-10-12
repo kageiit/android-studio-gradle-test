@@ -1,0 +1,22 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:caricetum:concher')
+    compile project(':outissue:carnally')
+
+    compile deps.other.retrofit
+    compile deps.other.utils
+    compile deps.external.rxrelay
+    compile deps.external.rxbinding
+    compile deps.external.rxlifecycle
+    compile deps.external.rxandroid
+    compile deps.external.rxjava
+    compile deps.external.timber
+    compile deps.apt.javaxInject
+    compile deps.support.annotations
+    compile deps.support.appCompat
+
+    testCompile deps.external.rxlifecycle
+    testCompile deps.support.appCompat
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:caricetum:hermetic')
+}

@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt project(':outissue:caricetum:handbolt')
+    apt project(':outissue:caricetum:Chelura')
+
+    compile project(':outissue:stupendly')
+    compile project(':outissue:caricetum:skiapod')
+    compile project(':fratry:subradius')
+
+    compile deps.other.geo
+
+    testCompile project(':outissue:cyclus')
+}

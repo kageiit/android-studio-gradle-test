@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.jakewharton.butterknife'
+dependencies {
+    apt project(':outissue:caricetum:handbolt')
+    apt project(':outissue:caricetum:Chelura')
+    apt deps.apt.butterKnifeCompiler
+    apt deps.apt.daggerCompiler
+    apt deps.other.recyclerview
+
+    compile project(':subvola:remigrate')
+    compile project(':subvola:gorgoneum:Chordata')
+    compile project(':subvola:gorgoneum:metanilic:agaric')
+    compile project(':subvola:graphite')
+    compile project(':outissue:tetragram')
+    compile project(':outissue:extended')
+    compile project(':outissue:stupendly')
+    compile project(':outissue:situla')
+    compile project(':outissue:carnally')
+    compile project(':fratry:savory')
+    compile project(':fratry:halsen')
+    compile deps.support.design
+    compile deps.external.butterKnife
+    compile deps.other.exo
+
+    testCompile deps.test.opentracing
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:caricetum:midship')
+    testCompile project(':outissue:caricetum:hermetic')
+}

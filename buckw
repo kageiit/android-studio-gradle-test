@@ -4,7 +4,7 @@
 ##
 ##  Buck wrapper script to invoke okbuck when needed, before running buck
 ##
-##  Created by OkBuck Gradle Plugin on : Thu Sep 29 01:42:38 EDT 2016
+##  Created by OkBuck Gradle Plugin on : Wed Oct 12 00:38:56 PDT 2016
 ##
 #########################################################################
 
@@ -103,12 +103,16 @@ getChanges ( ) {
     "fields": ["name"]
 }]
 EOT`
-    RESOURCE_ROOTS=`watchman --output-encoding=json -j 2>&1 <<-EOT
+    SOURCE_ROOTS=`watchman --output-encoding=json -j 2>&1 <<-EOT
 ["query", ".", {
-    "since": "n:okbuck_resource_roots",
+    "since": "n:okbuck_source_roots",
     "expression": ["allof",
         ["type", "d"],
-        ["imatch", "**/src/**/res", "wholename"]
+        ["anyof",
+            ["imatch", "**/src/**/java", "wholename"],
+            ["imatch", "**/src/**/res", "wholename"],
+            ["imatch", "**/src/**/resources", "wholename"]
+        ]
     ],
     "fields": ["new", "exists", "name"]
 }]
@@ -132,7 +136,8 @@ runOkBuck ( ) {
     fi
 
     rm -f $OKBUCK_SUCCESS
-    ( $WORKING_DIR/gradlew -p $WORKING_DIR okbuck -Dokbuck.wrapper=true $EXTRA_ARGS --stacktrace && updateOkBuckSuccess && success "PROCEEDING WITH BUCK" ) || die "OKBUCK FAILED"
+    ( $WORKING_DIR/gradlew -p $WORKING_DIR okbuck -Dokbuck.wrapper=true $EXTRA_ARGS $EXTRA_OKBUCK_ARGS --stacktrace &&
+    updateOkBuckSuccess && success "PROCEEDING WITH BUCK" ) || die "OKBUCK FAILED"
 }
 
 watchmanWorkflow ( ) {
@@ -141,12 +146,12 @@ watchmanWorkflow ( ) {
 
     # Format list for simpler output
     CHANGES=$(echo $WATCHED_CHANGES | jsonq '" ".join(obj["files"])')
-    NEW_OR_DELETED_RESOURCE_ROOTS=$(echo $RESOURCE_ROOTS | jsonq '" ".join([f["name"] for f in obj["files"] if (not f["exists"] or f["new"])])')
-    NUM_CHANGES=$(echo $CHANGES $NEW_OR_DELETED_RESOURCE_ROOTS | wc -w)
+    NEW_OR_DELETED_SOURCE_ROOTS=$(echo $SOURCE_ROOTS | jsonq '" ".join([f["name"] for f in obj["files"] if (not f["exists"] or f["new"])])')
+    NUM_CHANGES=$(echo $CHANGES $NEW_OR_DELETED_SOURCE_ROOTS | wc -w)
 
     if [[ $NUM_CHANGES -gt 0 ]]; then
         info "CHANGES DETECTED IN:"
-        echo $CHANGES $NEW_OR_DELETED_RESOURCE_ROOTS | tr ' ' '\n' | head -n $MAX_DISPLAY_CHANGES
+        echo $CHANGES $NEW_OR_DELETED_SOURCE_ROOTS | tr ' ' '\n' | head -n $MAX_DISPLAY_CHANGES
         if [[ $NUM_CHANGES -gt $MAX_DISPLAY_CHANGES ]]; then
             DIFF=`expr $NUM_CHANGES - $MAX_DISPLAY_CHANGES`
             echo "...and $DIFF more"

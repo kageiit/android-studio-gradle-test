@@ -1,0 +1,5 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:phasmatid')
+    compile deps.support.annotations
+}

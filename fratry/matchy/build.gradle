@@ -1,0 +1,19 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.other.recyclerview
+
+    compile project (':outissue:shortsome')
+    compile project (':outissue:gliadin')
+    compile project (':outissue:aricine')
+    compile project (':outissue:nutate')
+    compile project (':fratry:asteep')
+
+    compile deps.external.gson
+    compile deps.external.rxjava
+    compile deps.external.rxrelay
+    compile deps.external.timber
+    compile deps.other.blockcanary
+
+    testCompile project(':outissue:cyclus')
+    testCompile project(':outissue:browntail')
+}

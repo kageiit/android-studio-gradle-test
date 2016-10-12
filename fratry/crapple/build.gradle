@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    apt deps.other.recyclerview
+
+    compile project(':outissue:caricetum:concher')
+    compile project(':fratry:matchy')
+    compile project(':fratry:linotype')
+    compile project(':outissue:edictally')
+    compile project(':outissue:tristate');
+    compile deps.external.rxjava
+    compile deps.external.rxrelay
+    compile deps.other.crittercism
+    compile deps.other.geo
+    compile deps.other.blockcanary
+
+    testCompile deps.test.opentracing
+    testCompile deps.other.leanback
+}

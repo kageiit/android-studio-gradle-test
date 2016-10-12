@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile project(':outissue:extended')
+    compile project(':outissue:carnally')
+    compile deps.other.location
+    compile deps.other.locationServiceGoogle
+    compile deps.other.mapbox
+
+    compile deps.other.javapoet
+
+    testCompile deps.other.leanback
+}

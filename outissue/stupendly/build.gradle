@@ -1,0 +1,7 @@
+apply plugin: 'java'
+dependencies {
+    compileOnly deps.support.annotations
+
+    testCompile deps.support.annotations
+    testCompile deps.other.leanback
+}

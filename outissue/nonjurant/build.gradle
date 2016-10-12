@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+dependencies {
+    compile deps.support.annotations
+    compile deps.external.deviceYearClass
+    compile deps.other.utils
+    compile deps.external.rxandroid
+
+    testCompile deps.other.leanback
+    testCompile project(':outissue:cyclus')
+}
