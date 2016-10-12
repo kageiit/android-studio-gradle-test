@@ -1,6 +1,0 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.neenbedankt.android-apt'
-
-dependencies {
-    compile project(':fg:ff')
-}

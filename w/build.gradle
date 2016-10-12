@@ -1,8 +1,0 @@
-apply plugin: 'java'
-apply plugin: 'net.ltgt.apt'
-
-dependencies {
-    compile deps.external.rxjava
-    compile deps.external.rxrelay
-    compile deps.other.reflections
-}
