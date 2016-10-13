@@ -129,7 +129,7 @@ def other = [
         location             : "com.google.android.gms:play-services-location:${versions.playServicesVersion}",
         googleMap            : "com.google.android.gms:play-services-maps:${versions.playServicesVersion}",
         locationServiceGoogle: "com.google.android.gms:play-services-places:${versions.playServicesVersion}",
-        mapbox               : "com.mapbox.mapboxsdk:mapbox-android-sdk:4.2.0-beta.3@aar",
+        rebound              : "com.facebook.rebound:rebound:0.3.8",
         reactivenet          : 'com.github.pwittchen:reactivenetwork:0.4.0',
         exo                  : 'com.google.android.exoplayer:exoplayer:r1.5.9',
         cast                 : "com.google.android.gms:play-services-cast:${versions.playServicesVersion}",

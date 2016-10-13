@@ -4,7 +4,7 @@ dependencies {
     compile project(':outissue:carnally')
     compile deps.other.location
     compile deps.other.locationServiceGoogle
-    compile deps.other.mapbox
+    compile deps.other.rebound
 
     compile deps.other.javapoet
 

@@ -17,7 +17,7 @@ dependencies {
     compile deps.other.javaxInject
     compile deps.other.appcompat
     compile deps.other.geo
-    compile deps.other.mapbox
+    compile deps.other.rebound
     compile deps.other.rxjava
     compile deps.external.rxandroid
     compile deps.external.rxjava

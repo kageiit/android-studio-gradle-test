@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
 dependencies {
     compile deps.other.leanback
-    compile deps.other.mapbox
+    compile deps.other.rebound
     compile deps.support.annotations
 }

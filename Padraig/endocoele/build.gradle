@@ -63,7 +63,7 @@ dependencies {
     compile deps.other.geo
     compile deps.other.googleMap
     compile deps.other.locationServiceGoogle
-    compile deps.other.mapbox
+    compile deps.other.rebound
     compile deps.playServices.wallet
     compile deps.playServices.gcm
     compile deps.support.multidex

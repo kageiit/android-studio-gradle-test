@@ -9,7 +9,7 @@ dependencies {
     compile deps.external.dagger
     compile deps.external.picasso
     compile deps.external.timber
-    compile deps.other.mapbox
+    compile deps.other.rebound
     compile deps.support.annotations
     compile deps.other.appcompat
     compile deps.other.geo
