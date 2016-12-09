@@ -1,10 +1,11 @@
 buildscript {
     repositories {
         jcenter()
+        mavenLocal()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.1'
+        classpath 'com.android.tools.build:gradle:2.3.0-dev'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.uber:okbuck:0.8.1'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'

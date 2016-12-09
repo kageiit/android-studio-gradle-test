@@ -13,7 +13,7 @@ def buildConfig = [
         compileSdkVersion: 24,
         minSdkVersion    : 21,
         targetSdkVersion : 24,
-        buildToolsVersion: '24.0.2',
+        buildToolsVersion: '25.0.0',
 ]
 
 def android = [
