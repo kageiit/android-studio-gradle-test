@@ -169,7 +169,7 @@ task addSources {
                 def sourceFolder = new File(it.projectDir, 'src')
                 println "Adding sources to: " + sourceFolder
                 copy {
-                    from fileTree(new File(project.rootDir, "../AndroidExample/app/src/")).exclude("main/AndroidManifest.xml")
+                    from fileTree(new File(project.rootDir, "gradle/SourceTemplate/app/src/")).exclude("main/AndroidManifest.xml")
                     into sourceFolder
                 }
 
