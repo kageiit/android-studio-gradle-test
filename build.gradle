@@ -161,3 +161,79 @@ afterEvaluate {
         }
     }
 }
+
+task addSources {
+    doLast {
+        subprojects.each {
+            if (it.plugins.hasPlugin('com.android.application') || it.plugins.hasPlugin('com.android.library')) {
+                def sourceFolder = new File(it.projectDir, 'src')
+                println "Adding sources to: " + sourceFolder
+                copy {
+                    from fileTree(new File(project.rootDir, "../AndroidExample/app/src/")).exclude("main/AndroidManifest.xml")
+                    into sourceFolder
+                }
+
+                def activityClass = new File(sourceFolder, "main/java/gradle/example/LoginActivity.java")
+                def daggerModule = new File(sourceFolder, "main/java/gradle/example/DaggerModule.java")
+
+                def hasInject = hasDependency(it, "javax.inject")
+                def hasDagger = hasDependency(it, "dagger-2")
+                def hasButterknife = hasDependency(it, "butterknife-8")
+                def hasAutoService = hasDependency(it, "auto-service");
+                def hasAutoValue = hasDependency(it, "auto-value");
+                def hasButterknifePlugin = it.plugins.hasPlugin('com.jakewharton.butterknife')
+
+                if (!hasAutoService) {
+                    new File(sourceFolder, "main/java/gradle/example/Service.java").delete()
+                }
+                if (!hasAutoValue) {
+                    new File(sourceFolder, "main/java/gradle/example/Value.java").delete()
+                }
+                if (!hasInject) {
+                    activityClass.text = activityClass.text.replaceAll("@javax.inject.Inject SharedPreferences sharedPreferences;", "")
+                }
+                if (!hasDagger) {
+                    daggerModule.delete()
+                }
+                if (!hasButterknife || (!hasButterknifePlugin && it.plugins.hasPlugin('com.android.library'))) {
+                    activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "")
+                }
+                if (!hasInject || !hasDagger) {
+                    activityClass.text = activityClass.text.replaceAll("@javax.inject.Inject DaggerModule.DomainObject domainObject;", "")
+                }
+
+                if (hasButterknife && hasButterknifePlugin) {
+                    activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "@butterknife.BindView(R2.id.login_form)")
+                }
+
+                adjustPackage(it, "LoginActivity")
+                if (hasAutoService) {
+                    adjustPackage(it, "Service")
+                }
+                if (hasAutoValue) {
+                    adjustPackage(it, "Value")
+                }
+                if (hasDagger) {
+                    adjustPackage(it, "DaggerModule")
+                }
+            }
+        }
+    }
+}
+
+boolean hasDependency(Project project, String name) {
+    project.configurations.getByName("compile").resolve().find { it.name.contains(name) } != null
+}
+
+def adjustPackage(Project project, String className) {
+    def sourceFolder = new File(project.projectDir, 'src')
+    def sourceFile = new File(sourceFolder, "main/java/gradle/example/${className}.java")
+    def manifest = new File(sourceFolder, "main/AndroidManifest.xml").text;
+    def projectPackage = manifest.substring(manifest.indexOf('package="') + 9, manifest.indexOf('" xmlns:android'))
+
+    def exampleClassFolder = new File(sourceFolder, "main/java/${projectPackage.replace('.', '/')}");
+    exampleClassFolder.mkdirs();
+
+    sourceFile.text = sourceFile.text.replaceAll("package gradle.example;", "package ${projectPackage};")
+    sourceFile.renameTo(new File(exampleClassFolder, "${className}.java"))
+}
