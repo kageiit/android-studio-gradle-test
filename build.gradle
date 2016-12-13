@@ -181,14 +181,10 @@ task addSources {
                 def hasDagger = hasDependency(it, "dagger-2")
                 def hasButterknife = hasDependency(it, "butterknife-8")
                 def hasAutoService = hasDependency(it, "auto-service");
-                def hasAutoValue = hasDependency(it, "auto-value");
                 def hasButterknifePlugin = it.plugins.hasPlugin('com.jakewharton.butterknife')
 
                 if (!hasAutoService) {
                     new File(sourceFolder, "main/java/gradle/example/Service.java").delete()
-                }
-                if (!hasAutoValue) {
-                    new File(sourceFolder, "main/java/gradle/example/Value.java").delete()
                 }
                 if (!hasInject) {
                     activityClass.text = activityClass.text.replaceAll("@javax.inject.Inject SharedPreferences sharedPreferences;", "")
@@ -210,9 +206,6 @@ task addSources {
                 adjustPackage(it, "LoginActivity")
                 if (hasAutoService) {
                     adjustPackage(it, "Service")
-                }
-                if (hasAutoValue) {
-                    adjustPackage(it, "Value")
                 }
                 if (hasDagger) {
                     adjustPackage(it, "DaggerModule")
