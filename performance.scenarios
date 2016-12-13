@@ -11,14 +11,6 @@ rebuildSingleVariant {
   tasks = ["clean", "assembleDebug"]
 }
 
-upToDateAllVariants {
-  tasks = ["assemble"]
-}
-
-rebuildAllVariants {
-  tasks = ["clean", "assemble"]
-}
-
 help {
   tasks = ["help"]
 }
