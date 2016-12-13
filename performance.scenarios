@@ -1,0 +1,24 @@
+abiChange {
+  tasks = ["assembleDebug"]
+  apply-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
+}
+
+upToDateSingleVariant {
+  tasks = ["assembleDebug"]
+}
+
+rebuildSingleVariant {
+  tasks = ["clean", "assembleDebug"]
+}
+
+upToDateAllVariants {
+  tasks = ["assemble"]
+}
+
+rebuildAllVariants {
+  tasks = ["clean", "assemble"]
+}
+
+help {
+  tasks = ["help"]
+}
