@@ -26,3 +26,10 @@ Installation instructions for: [Ant](http://ant.apache.org/), [Watchman](https:/
 ```bash
 ./buildWithBuck
 ```
+
+## Benchmarking and profiling
+
+Use the `gradle-profiler` to either `--benchmark` or `--profile` a scenario. The
+available scenarios are listed in the `.scenario` files. Example usage:
+
+`./gradle-profiler --benchmark assembleDebug`
