@@ -175,10 +175,7 @@ task addSources {
                 }
 
                 def activityClass = new File(sourceFolder, "main/java/gradle/example/LoginActivity.java")
-                def daggerModule = new File(sourceFolder, "main/java/gradle/example/DaggerModule.java")
 
-                def hasInject = hasDependency(it, "javax.inject")
-                def hasDagger = hasDependency(it, "dagger-2")
                 def hasButterknife = hasDependency(it, "butterknife-8")
                 def hasAutoService = hasDependency(it, "auto-service");
                 def hasButterknifePlugin = it.plugins.hasPlugin('com.jakewharton.butterknife')
@@ -186,17 +183,8 @@ task addSources {
                 if (!hasAutoService) {
                     new File(sourceFolder, "main/java/gradle/example/Service.java").delete()
                 }
-                if (!hasInject) {
-                    activityClass.text = activityClass.text.replaceAll("@javax.inject.Inject SharedPreferences sharedPreferences;", "")
-                }
-                if (!hasDagger) {
-                    daggerModule.delete()
-                }
                 if (!hasButterknife || (!hasButterknifePlugin && it.plugins.hasPlugin('com.android.library'))) {
                     activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "")
-                }
-                if (!hasInject || !hasDagger) {
-                    activityClass.text = activityClass.text.replaceAll("@javax.inject.Inject DaggerModule.DomainObject domainObject;", "")
                 }
 
                 if (hasButterknife && hasButterknifePlugin) {
@@ -206,9 +194,6 @@ task addSources {
                 adjustPackage(it, "LoginActivity")
                 if (hasAutoService) {
                     adjustPackage(it, "Service")
-                }
-                if (hasDagger) {
-                    adjustPackage(it, "DaggerModule")
                 }
             }
         }
