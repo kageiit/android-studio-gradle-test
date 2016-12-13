@@ -32,4 +32,6 @@ Installation instructions for: [Ant](http://ant.apache.org/), [Watchman](https:/
 Use the `gradle-profiler` to either `--benchmark` or `--profile` a scenario. The
 available scenarios are listed in the `.scenario` files. Example usage:
 
-`./gradle-profiler --benchmark assembleDebug`
+`./gradle-profiler assembleDebug --benchmark`
+
+`./gradle-profiler assembleDebug --profile jfr`

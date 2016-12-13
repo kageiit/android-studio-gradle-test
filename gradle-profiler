@@ -4,4 +4,4 @@ else
   git clone git@github.com:gradle/gradle-profiler.git ~/.gradle-profiler --branch master --depth 1
 fi
 ~/.gradle-profiler/gradlew -p ~/.gradle-profiler installDist
-~/.gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler $1 --project-dir . --scenario-file "$2.scenario"
+~/.gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler --project-dir . --scenario-file "$1.scenario" "${@:2}"
