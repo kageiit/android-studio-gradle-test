@@ -1,10 +1,10 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 dependencies {
-    apt project(':outissue:caricetum:handbolt')
-    apt project(':outissue:caricetum:Chelura')
-    apt deps.other.recyclerview
-    apt deps.apt.daggerCompiler
-    apt deps.other.appcompat
+    annotationProcessor project(':outissue:caricetum:handbolt')
+    annotationProcessor project(':outissue:caricetum:Chelura')
+    annotationProcessor deps.other.recyclerview
+    annotationProcessor deps.apt.daggerCompiler
+    annotationProcessor deps.other.appcompat
 
     provided deps.apt.javax
 

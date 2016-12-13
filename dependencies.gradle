@@ -24,7 +24,7 @@ def android = [
         testUtils : "com.android.tools:testutils:${versions.androidToolsVersion}"
 ]
 
-def apt = [
+def annotationProcessor = [
         androidApi          : 'com.google.android:android:4.1.1.4',
         autoCommon          : 'com.google.auto:auto-common:0.4',
         autoService         : 'com.google.auto.service:auto-service:1.0-rc2',
@@ -184,7 +184,7 @@ ext.config = [
 
 ext.deps = [
         "android"     : android,
-        "apt"         : apt,
+        "apt"         : annotationProcessor,
         "debug"       : debug,
         "external"    : external,
         "other"       : other,

@@ -1,7 +1,7 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 apply plugin: 'com.jakewharton.butterknife'
 dependencies {
-    apt deps.apt.butterKnifeCompiler
+    annotationProcessor deps.apt.butterKnifeCompiler
     compile project(':outissue:carnally')
     compile project(':outissue:Glumaceae')
     compile deps.external.butterKnife

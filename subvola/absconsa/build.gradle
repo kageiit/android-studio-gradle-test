@@ -1,13 +1,13 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 dependencies {
     androidTestCompile deps.support.annotations
     androidTestCompile deps.other.recyclerview
 
-    apt deps.apt.daggerCompiler
-    apt deps.other.recyclerview
-    apt deps.other.appcompat
-    apt project(':outissue:caricetum:handbolt')
-    apt project(':outissue:caricetum:Chelura')
+    annotationProcessor deps.apt.daggerCompiler
+    annotationProcessor deps.other.recyclerview
+    annotationProcessor deps.other.appcompat
+    annotationProcessor project(':outissue:caricetum:handbolt')
+    annotationProcessor project(':outissue:caricetum:Chelura')
 
     compile deps.support.annotations
     compile deps.external.dagger
@@ -31,7 +31,7 @@ dependencies {
 
     provided deps.apt.javax
 
-    testApt deps.apt.daggerCompiler
+    testAnnotationProcessor deps.apt.daggerCompiler
     testCompile deps.other.leanback
     testCompile project(':outissue:cyclus')
     testCompile project(':outissue:caricetum:hermetic')

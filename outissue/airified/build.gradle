@@ -1,12 +1,12 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 apply plugin: 'com.jakewharton.butterknife'
 dependencies {
-    apt deps.apt.butterKnifeCompiler
+    annotationProcessor deps.apt.butterKnifeCompiler
     compile deps.external.butterKnife
-    apt deps.other.recyclerview
-    apt deps.apt.daggerCompiler
-    apt project(':outissue:caricetum:handbolt')
-    apt project(':outissue:caricetum:Chelura')
+    annotationProcessor deps.other.recyclerview
+    annotationProcessor deps.apt.daggerCompiler
+    annotationProcessor project(':outissue:caricetum:handbolt')
+    annotationProcessor project(':outissue:caricetum:Chelura')
 
     compile deps.apt.javaxInject
     compile deps.external.dagger

@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.application';
 dependencies {
     debugCompile project(':Padraig:arbitrate')
     releaseCompile project(':Padraig:cuminoin')
@@ -7,7 +7,7 @@ dependencies {
 
     compile project(':outissue:oleometer')
 
-    androidTestApt deps.apt.daggerCompiler
+    androidTestAnnotationProcessor deps.apt.daggerCompiler
 
     androidTestCompile project(':outissue:embrace')
     androidTestCompile project(':outissue:oleometer')
