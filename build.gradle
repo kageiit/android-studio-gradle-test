@@ -104,6 +104,9 @@ subprojects { project ->
 def addCommonConfigurationForJavaModules(Project project) {
     project.sourceCompatibility = JavaVersion.VERSION_1_7
     project.targetCompatibility = JavaVersion.VERSION_1_7
+    project.compileJava {
+        options.incremental = true
+    }
 }
 
 def addCommonConfigurationForAndroidModules(Project project) {
@@ -120,6 +123,7 @@ def addCommonConfigurationForAndroidModules(Project project) {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
+            incremental = true
         }
 
         lintOptions {
