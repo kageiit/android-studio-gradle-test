@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.other.recyclerview
-    annotationProcessor deps.apt.daggerCompiler
-    annotationProcessor project(':outissue:caricetum:handbolt')
-    annotationProcessor project(':outissue:caricetum:Chelura')
+    compile deps.other.recyclerview
+    compile deps.apt.daggerCompiler
+    compile project(':outissue:caricetum:handbolt')
+    compile project(':outissue:caricetum:Chelura')
 
     compile deps.apt.javaxInject
     compile deps.external.dagger

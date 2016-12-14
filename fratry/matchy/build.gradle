@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.other.recyclerview
+    compile deps.other.recyclerview
 
     compile project (':outissue:shortsome')
     compile project (':outissue:gliadin')

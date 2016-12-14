@@ -3,7 +3,7 @@ apply plugin: 'com.jakewharton.butterknife'
 dependencies {
     compile project(':outissue:aricine')
     compile project(':outissue:nursing')
-    annotationProcessor deps.apt.butterKnifeCompiler
+    compile deps.apt.butterKnifeCompiler
 
     compile deps.external.butterKnife
     compile deps.other.geo

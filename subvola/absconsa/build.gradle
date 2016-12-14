@@ -3,11 +3,11 @@ dependencies {
     androidTestCompile deps.support.annotations
     androidTestCompile deps.other.recyclerview
 
-    annotationProcessor deps.apt.daggerCompiler
-    annotationProcessor deps.other.recyclerview
-    annotationProcessor deps.other.appcompat
-    annotationProcessor project(':outissue:caricetum:handbolt')
-    annotationProcessor project(':outissue:caricetum:Chelura')
+    compile deps.apt.daggerCompiler
+    compile deps.other.recyclerview
+    compile deps.other.appcompat
+    compile project(':outissue:caricetum:handbolt')
+    compile project(':outissue:caricetum:Chelura')
 
     compile deps.support.annotations
     compile deps.external.dagger
@@ -31,7 +31,7 @@ dependencies {
 
     provided deps.apt.javax
 
-    testAnnotationProcessor deps.apt.daggerCompiler
+    testCompile deps.apt.daggerCompiler
     testCompile deps.other.leanback
     testCompile project(':outissue:cyclus')
     testCompile project(':outissue:caricetum:hermetic')

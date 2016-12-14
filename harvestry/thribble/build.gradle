@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application';
 dependencies {
-    annotationProcessor deps.apt.daggerCompiler
-    annotationProcessor project(':outissue:caricetum:handbolt')
+    compile deps.apt.daggerCompiler
+    compile project(':outissue:caricetum:handbolt')
 
     provided deps.apt.javax
 

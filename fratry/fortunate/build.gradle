@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.apt.daggerCompiler
-    annotationProcessor project(':outissue:caricetum:handbolt')
-    annotationProcessor project(':outissue:caricetum:Chelura')
+    compile deps.apt.daggerCompiler
+    compile project(':outissue:caricetum:handbolt')
+    compile project(':outissue:caricetum:Chelura')
 
     compile project(':outissue:extended')
     compile project(':outissue:caricetum:midship')

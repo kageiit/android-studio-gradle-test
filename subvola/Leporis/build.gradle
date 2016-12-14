@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.apt.daggerCompiler
-    annotationProcessor deps.other.recyclerview
+    compile deps.apt.daggerCompiler
+    compile deps.other.recyclerview
 
-    annotationProcessor project(':outissue:caricetum:handbolt')
-    annotationProcessor project(':outissue:caricetum:Chelura')
+    compile project(':outissue:caricetum:handbolt')
+    compile project(':outissue:caricetum:Chelura')
 
     compile project(':subvola:gorgoneum:Chordata')
     compile project(':outissue:extended')

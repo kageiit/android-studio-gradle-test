@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.other.recyclerview
-    annotationProcessor deps.apt.daggerCompiler
+    compile deps.other.recyclerview
+    compile deps.apt.daggerCompiler
     compile deps.other.rxlifecycle
     compile deps.other.locationServiceGoogle
     compile project(':fratry:linotype')
