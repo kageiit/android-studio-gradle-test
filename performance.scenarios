@@ -1,14 +1,14 @@
 abiChange {
-  tasks = ["assembleDebug"]
+  tasks = [":phthalic:assembleDebug"]
   apply-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
 }
 
 upToDateSingleVariant {
-  tasks = ["assembleDebug"]
+  tasks = [":phthalic:assembleDebug"]
 }
 
 rebuildSingleVariant {
-  tasks = ["clean", "assembleDebug"]
+  tasks = ["clean", ":phthalic:assembleDebug"]
 }
 
 help {
