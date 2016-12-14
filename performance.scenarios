@@ -8,6 +8,11 @@ androidManifestChange {
   apply-android-manifest-change-to = "./outissue/carnally/src/main/AndroidManifest.xml"
 }
 
+classpathResourceChange {
+    tasks = [":phthalic:assembleDebug"]
+    apply-property-resource-change-to = "./outissue/caricetum/concher/src/main/resources/app.properties"
+}
+
 upToDateSingleVariant {
   tasks = [":phthalic:assembleDebug"]
 }
