@@ -3,6 +3,11 @@ abiChange {
   apply-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
 }
 
+androidManifestChange {
+  tasks = [":phthalic:assembleDebug"]
+  apply-android-manifest-change-to = "./outissue/carnally/src/main/AndroidManifest.xml"
+}
+
 upToDateSingleVariant {
   tasks = [":phthalic:assembleDebug"]
 }
