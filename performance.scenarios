@@ -11,6 +11,16 @@ rebuildSingleVariant {
   tasks = ["clean", ":phthalic:assembleDebug"]
 }
 
+upToDateAllVariants {
+  tasks = ["assemble"]
+  gradle-args = ["-x", "lintVitalRelease"]
+}
+
+rebuildAllVariants {
+  tasks = ["clean", "assemble"]
+  gradle-args = ["-x", "lintVitalRelease"]
+}
+
 help {
   tasks = ["help"]
 }
