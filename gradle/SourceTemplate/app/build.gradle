@@ -32,12 +32,12 @@ android {
 
 dependencies {
     compile "com.google.dagger:dagger-compiler:2.7"
-    // compile command comes from the android-compile plugin
-    compile 'com.google.dagger:dagger-compiler:2.7'
+    // annotationProcessor command comes from the android-annotationProcessor plugin
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
     compile 'com.google.dagger:dagger:2.7'
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'com.jakewharton:butterknife:8.4.0'
-    compile 'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.google.auto.service:auto-service:1.0-rc2'
     compile 'com.google.auto.value:auto-value:1.3-rc2'
 }

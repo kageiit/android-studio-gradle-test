@@ -7,7 +7,7 @@ dependencies {
 
     compile project(':outissue:oleometer')
 
-    androidTestCompile deps.apt.daggerCompiler
+    androidTestAnnotationProcessor deps.apt.daggerCompiler
 
     androidTestCompile project(':outissue:embrace')
     androidTestCompile project(':outissue:oleometer')

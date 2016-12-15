@@ -3,8 +3,8 @@ dependencies {
     compile project(':Padraig:ratafee')
     compile project(':outissue:extended')
 
-    compile deps.other.recyclerview
-    compile deps.apt.daggerCompiler
+    annotationProcessor deps.other.recyclerview
+    annotationProcessor deps.apt.daggerCompiler
 
     compile deps.other.butterknife
     compile deps.other.utils
@@ -20,7 +20,7 @@ dependencies {
 
     compile deps.other.reactivenet
 
-    testCompile deps.apt.daggerCompiler
+    testAnnotationProcessor deps.apt.daggerCompiler
     testCompile project(':outissue:cyclus')
     testCompile deps.other.reactivenet
 }
