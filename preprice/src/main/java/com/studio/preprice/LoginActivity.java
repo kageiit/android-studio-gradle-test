@@ -59,7 +59,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private EditText mPasswordView;
     private View mProgressView;
 
-    @butterknife.BindView(R.id.login_form)
     View mLoginFormView;
 
     @Override
