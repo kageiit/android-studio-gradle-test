@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.apt.daggerCompiler
-    annotationProcessor project(':outissue:caricetum:handbolt')
+
+
 
     compile project(':outissue:extended')
     compile project(':outissue:bracciale')

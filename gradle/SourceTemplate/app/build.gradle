@@ -32,7 +32,7 @@ android {
 
 dependencies {
     compile "com.google.dagger:dagger-compiler:2.7"
-    // annotationProcessor command comes from the android-annotationProcessor plugin
+
     annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
     compile 'com.google.dagger:dagger:2.7'
     provided 'javax.annotation:jsr250-api:1.0'

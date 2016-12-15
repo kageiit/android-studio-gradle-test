@@ -2,7 +2,7 @@ apply plugin: 'com.android.library';
 dependencies {
     // safe libraries as they are compile time checked.
     compile deps.support.annotations
-    annotationProcessor deps.other.recyclerview
+
     compile deps.other.appcompat
 
     // required for serializing json.

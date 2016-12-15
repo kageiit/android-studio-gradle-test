@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.apt.daggerCompiler
+
 
     compile project(':outissue:extended')
     compile deps.apt.javaxInject

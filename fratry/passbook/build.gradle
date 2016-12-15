@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library';
 dependencies {
-    annotationProcessor deps.other.recyclerview
-    annotationProcessor deps.other.appcompat
+
+
 
     compile project(':fratry:matchy')
     compile project(':outissue:tetragram')
