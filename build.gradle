@@ -1,11 +1,10 @@
 buildscript {
     repositories {
         jcenter()
-        mavenLocal()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0-dev'
+        classpath 'com.android.tools.build:gradle:2.2.2'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.uber:okbuck:0.8.1'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
@@ -13,8 +12,8 @@ buildscript {
 }
 
 allprojects {
-    project -> project.apply from: rootProject.file('dependencies.gradle') 
-    repositories { 
+    project -> project.apply from: rootProject.file('dependencies.gradle')
+    repositories {
         jcenter()
     }
 
@@ -27,14 +26,6 @@ allprojects {
             url "$androidHome/extras/google/m2repository/"
         }
     }
-
-    /*def logger = new com.android.build.gradle.internal.LoggerWrapper(project.logger)
-    def sdkHandler = new com.android.build.gradle.internal.SdkHandler(project, logger)
-    for (File file : sdkHandler.sdkLoader.repositories) {
-        repositories.maven {
-            url = file.toURI()
-        }
-    }*/
 }
 
 def multidexApps = []
@@ -104,9 +95,6 @@ subprojects { project ->
 def addCommonConfigurationForJavaModules(Project project) {
     project.sourceCompatibility = JavaVersion.VERSION_1_7
     project.targetCompatibility = JavaVersion.VERSION_1_7
-    project.compileJava {
-        options.incremental = true
-    }
 }
 
 def addCommonConfigurationForAndroidModules(Project project) {
@@ -123,7 +111,6 @@ def addCommonConfigurationForAndroidModules(Project project) {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
-            incremental = true
         }
 
         lintOptions {
