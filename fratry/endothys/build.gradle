@@ -1,10 +1,10 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 dependencies {
     compile project(':Padraig:ratafee')
     compile project(':outissue:extended')
 
-    apt deps.other.recyclerview
-    apt deps.apt.daggerCompiler
+    compile deps.other.recyclerview
+    compile deps.apt.daggerCompiler
 
     compile deps.other.butterknife
     compile deps.other.utils
@@ -20,7 +20,7 @@ dependencies {
 
     compile deps.other.reactivenet
 
-    testApt deps.apt.daggerCompiler
+    testCompile deps.apt.daggerCompiler
     testCompile project(':outissue:cyclus')
     testCompile deps.other.reactivenet
 }

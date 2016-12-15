@@ -1,0 +1,26 @@
+abiChange {
+  tasks = [":phthalic:assembleDebug"]
+  apply-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
+}
+
+upToDateSingleVariant {
+  tasks = [":phthalic:assembleDebug"]
+}
+
+rebuildSingleVariant {
+  tasks = ["clean", ":phthalic:assembleDebug"]
+}
+
+upToDateAllVariants {
+  tasks = ["assemble"]
+  gradle-args = ["-x", "lintVitalRelease"]
+}
+
+rebuildAllVariants {
+  tasks = ["clean", "assemble"]
+  gradle-args = ["-x", "lintVitalRelease"]
+}
+
+help {
+  tasks = ["help"]
+}

@@ -1,9 +1,9 @@
-apply plugin: 'com.android.application'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.application';
 dependencies {
-    apt deps.other.recyclerview
-    apt deps.apt.daggerCompiler
-    apt project(':outissue:caricetum:handbolt')
-    apt project(':outissue:caricetum:Chelura')
+    compile deps.other.recyclerview
+    compile deps.apt.daggerCompiler
+    compile project(':outissue:caricetum:handbolt')
+    compile project(':outissue:caricetum:Chelura')
 
     compile project(':outissue:nonjurant')
     compile project(':outissue:stupendly')

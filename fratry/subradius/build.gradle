@@ -1,11 +1,11 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 dependencies {
     compile project(':outissue:nutate')
     compile project(':outissue:tristate')
     compile project(':fratry:matchy')
 
-    apt deps.other.recyclerview
-    apt deps.other.appcompat
+    compile deps.other.recyclerview
+    compile deps.other.appcompat
 
     compile deps.apt.javaxInject
     compile deps.support.annotations

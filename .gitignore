@@ -9,3 +9,5 @@ build
 BUCK
 .buckd
 buck-out
+profile-out*
+gradle-user-home

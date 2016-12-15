@@ -26,3 +26,9 @@ Installation instructions for: [Ant](http://ant.apache.org/), [Watchman](https:/
 ```bash
 ./buildWithBuck
 ```
+
+## Benchmarking and profiling
+
+Use the Gradle profiler to `--benchmark` or `--profile` scenarios. The available scenarios are defined in `performance.scenarios`
+
+Example usage: `./gradle-profiler --profile chrome-trace upToDateSingleVariant`

@@ -1,6 +1,6 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 dependencies {
-    apt deps.other.recyclerview
+    compile deps.other.recyclerview
     compile deps.support.appCompat
     compile deps.support.cardView
     compile deps.support.design
