@@ -159,6 +159,14 @@ gradle.buildFinished {
     }
 }
 
+task cleanSources {
+  doLast {
+    subprojects.each {
+      delete fileTree(new File(it.projectDir, "src/")).exclude("main/AndroidManifest.xml")
+    }
+  }
+}
+
 task addSources {
     doLast {
         subprojects.each {
