@@ -87,7 +87,7 @@ subprojects { project ->
                     exclude 'META-INF/LICENSE'
                 }
                 dexOptions {
-                    javaMaxHeapSize "4g"
+                    javaMaxHeapSize "2g"
                 }
             }
         }
