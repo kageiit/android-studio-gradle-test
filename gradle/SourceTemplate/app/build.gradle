@@ -1,16 +1,5 @@
 apply plugin: 'com.android.application'
 
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        // other classpath definitions here
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
-}
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
