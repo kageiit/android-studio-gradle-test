@@ -1,12 +1,13 @@
 buildscript {
     repositories {
+        mavenLocal()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.3.0-dev'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'com.uber:okbuck:0.8.1'
+        classpath 'com.uber:okbuck:0.12.1'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
@@ -121,15 +122,20 @@ def addCommonConfigurationForAndroidModules(Project project) {
 
 apply plugin: 'com.uber.okbuck'
 okbuck {
+    target "android-${config.build.compileSdkVersion}"
+    buildToolVersion config.build.buildToolsVersion
     linearAllocHardLimit = multidexApps.collectEntries { target ->
             [target, 16 * 1024 * 1024]
     }
     extraBuckOpts = multidexApps.collectEntries { target ->
-        [target, ["binary": [
+        [target, ["android_binary": [
                     "trim_resource_ids = True",
                 ]
             ]
         ]
+    }
+    experimental {
+        parallel = true
     }
 }
 
@@ -146,11 +152,9 @@ def ARCHIVES = [
     '.okbuck/cache/org.mockito.mockito-core-1.10.19.jar',
     '.okbuck/cache/org.assertj.assertj-core-1.7.1.jar',
 ]
-afterEvaluate {
-    rootProject.tasks.getByName("okbuck").doLast {
-        ARCHIVES.each { archive ->
-            "zip -d ${archive} ${ENTRIES_TO_DELETE}".execute().waitFor()
-        }
+gradle.buildFinished {
+    ARCHIVES.each { archive ->
+        "zip -d ${archive} ${ENTRIES_TO_DELETE}".execute().waitFor()
     }
 }
 

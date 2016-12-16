@@ -1,18 +1,18 @@
 def versions = [
-        androidToolsVersion: '25.1.0',
+        androidToolsVersion: '25.3.0-beta1',
         butterKnifeVersion : '8.4.0',
-        daggerVersion      : '2.7',
-        leakCanaryVersion  : '1.4',
-        playServicesVersion: '9.6.1',
+        daggerVersion      : '2.8',
+        leakCanaryVersion  : '1.5',
+        playServicesVersion: '10.0.1',
         roasterVersion     : '2.18.7.Final',
         stethoVersion      : '1.4.0',
-        supportVersion     : '24.2.1',
+        supportVersion     : '25.1.0',
 ]
 
 def buildConfig = [
-        compileSdkVersion: 24,
+        compileSdkVersion: 25,
         minSdkVersion    : 21,
-        targetSdkVersion : 24,
+        targetSdkVersion : 25,
         buildToolsVersion: '25.0.0',
 ]
 

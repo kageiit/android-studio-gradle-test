@@ -6,18 +6,18 @@ jdk: oraclejdk8
 android:
   components:
     - tools
-    - tools
     - platform-tools
-    - android-24
-    - build-tools-24.0.2
-  licenses:
-    - android-sdk-preview-license-84831b94
-    - android-sdk-license-8933bad1
-    - android-sdk-license-.+
-    - google-gdk-license-.+
+    - tools
+    - build-tools-25.0.1
+    - android-25
+    - extra-google-google_play_services
+    - extra-android-m2repository
+    - extra-google-m2repository  
 
 before_script:
-  - export PATH=$PATH:$HOME/.gradle/caches/okbuck/buck/bin
+  - mkdir -p $ANDROID_HOME/licenses
+  - echo $android_sdk_license > $ANDROID_HOME/licenses/android-sdk-license
+  - echo $android_sdk_preview_license > $ANDROID_HOME/licenses/android-sdk-preview-license
 
 env:
   - BUILD_COMMAND="./buildWithBuck"
