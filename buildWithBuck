@@ -1,4 +1,6 @@
 #!/bin/bash
 
-./buckw --version
-./buckw query "kind('android_binary', '//...')" | xargs ./buckw build
+export SKIP_OKBUCK=true
+
+SKIP_OKBUCK= ./buckw --version
+./buckw targets --type android_binary | xargs ./buckw build
