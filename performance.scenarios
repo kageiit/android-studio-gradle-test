@@ -3,6 +3,21 @@ abiChange {
   apply-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
 }
 
+androidManifestChange {
+  tasks = [":phthalic:assembleDebug"]
+  apply-android-manifest-change-to = "./outissue/carnally/src/main/AndroidManifest.xml"
+}
+
+androidResourceChange {
+    tasks = [":phthalic:assembleDebug"]
+    apply-android-resource-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
+}
+
+classpathResourceChange {
+    tasks = [":phthalic:assembleDebug"]
+    apply-property-resource-change-to = "./outissue/caricetum/concher/src/main/resources/app.properties"
+}
+
 upToDateSingleVariant {
   tasks = [":phthalic:assembleDebug"]
 }
