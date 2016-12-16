@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library';
 dependencies {
-
+    annotationProcessor deps.other.recyclerview
     compile deps.support.appCompat
     compile deps.support.cardView
     compile deps.support.design

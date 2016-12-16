@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application';
 dependencies {
-
-
-
-
+    annotationProcessor deps.other.recyclerview
+    annotationProcessor deps.apt.daggerCompiler
+    annotationProcessor project(':outissue:caricetum:handbolt')
+    annotationProcessor project(':outissue:caricetum:Chelura')
     compile project(':outissue:stupendly')
     compile project(':outissue:caricetum:midship')
     compile project(':outissue:situla')
