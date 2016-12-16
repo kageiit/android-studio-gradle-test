@@ -2,7 +2,7 @@ apply plugin: 'com.android.library';
 apply plugin: 'com.jakewharton.butterknife'
 dependencies {
     compile project(':outissue:carnally')
-
+    annotationProcessor deps.apt.butterKnifeCompiler
 
     compile deps.external.butterKnife
 

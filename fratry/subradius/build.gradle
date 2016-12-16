@@ -4,8 +4,8 @@ dependencies {
     compile project(':outissue:tristate')
     compile project(':fratry:matchy')
 
-
-
+    annotationProcessor deps.other.recyclerview
+    annotationProcessor deps.other.appcompat
 
     compile deps.apt.javaxInject
     compile deps.support.annotations

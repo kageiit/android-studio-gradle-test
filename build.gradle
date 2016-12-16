@@ -1,12 +1,15 @@
 buildscript {
     repositories {
+        mavenLocal()
         jcenter()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0-beta1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.uber:okbuck:0.12.1'
+        classpath ('com.uber:okbuck:0.12.1') {
+          exclude module: 'gradle'
+        }
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
