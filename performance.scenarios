@@ -23,7 +23,8 @@ upToDateSingleVariant {
 }
 
 rebuildSingleVariant {
-  tasks = ["clean", ":phthalic:assembleDebug"]
+  cleanup-tasks = ["clean"]
+  tasks = [":phthalic:assembleDebug"]
 }
 
 upToDateAllVariants {
@@ -32,7 +33,8 @@ upToDateAllVariants {
 }
 
 rebuildAllVariants {
-  tasks = ["clean", "assemble"]
+  cleanup-tasks = ["clean"]
+  tasks = ["assemble"]
   gradle-args = ["-x", "lintVitalRelease"]
 }
 
