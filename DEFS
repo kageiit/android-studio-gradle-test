@@ -1,0 +1,11 @@
+original_android_binary = android_binary
+
+def android_binary(
+    name,
+    **kwargs
+    ):
+    original_android_binary(
+        name,
+        trim_resource_ids = True,
+        **kwargs
+    )

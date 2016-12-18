@@ -9,3 +9,9 @@
 
 [httpserver]
     port = 0
+
+[buildfile]
+  includes = //DEFS
+
+[build]
+  threads = 16
