@@ -8,5 +8,4 @@ dependencies {
 
     testCompile deps.test.compileTesting
     testCompile deps.other.leanback
-    testCompile files(org.gradle.internal.jvm.Jvm.current().getToolsJar())
 }
