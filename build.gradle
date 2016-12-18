@@ -1,27 +1,31 @@
 buildscript {
     repositories {
+        mavenLocal()
         jcenter()
     }
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0-beta1'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-        classpath 'com.uber:okbuck:0.12.1'
+        classpath ('com.uber:okbuck:0.12.1') {
+          exclude module: 'gradle'
+        }
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
 
 allprojects {
-    project -> project.apply from: rootProject.file('dependencies.gradle') 
-    repositories { 
+    project -> project.apply from: rootProject.file('dependencies.gradle')
+    repositories {
         jcenter()
     }
 
-    def logger = new com.android.build.gradle.internal.LoggerWrapper(project.logger)
-    def sdkHandler = new com.android.build.gradle.internal.SdkHandler(project, logger)
-    for (File file : sdkHandler.sdkLoader.repositories) {
-        repositories.maven {
-            url = file.toURI()
+    def androidHome = System.getenv("ANDROID_HOME")
+    repositories {
+        maven {
+            url "$androidHome/extras/android/m2repository/"
+        }
+        maven {
+            url "$androidHome/extras/google/m2repository/"
         }
     }
 }
@@ -83,7 +87,7 @@ subprojects { project ->
                     exclude 'META-INF/LICENSE'
                 }
                 dexOptions {
-                    javaMaxHeapSize "4g"
+                    javaMaxHeapSize "2g"
                 }
             }
         }
@@ -153,4 +157,66 @@ gradle.buildFinished {
     ARCHIVES.each { archive ->
         "zip -d ${archive} ${ENTRIES_TO_DELETE}".execute().waitFor()
     }
+}
+
+task cleanSources {
+  doLast {
+    subprojects.each {
+      delete fileTree(new File(it.projectDir, "src/")).exclude("main/AndroidManifest.xml")
+    }
+  }
+}
+
+task addSources {
+    doLast {
+        subprojects.each {
+            if (it.plugins.hasPlugin('com.android.application') || it.plugins.hasPlugin('com.android.library')) {
+                def sourceFolder = new File(it.projectDir, 'src')
+                println "Adding sources to: " + sourceFolder
+                copy {
+                    from fileTree(new File(project.rootDir, "gradle/SourceTemplate/app/src/")).exclude("main/AndroidManifest.xml")
+                    into sourceFolder
+                }
+
+                def activityClass = new File(sourceFolder, "main/java/gradle/example/LoginActivity.java")
+
+                def hasButterknife = hasDependency(it, "butterknife-8")
+                def hasAutoService = hasDependency(it, "auto-service");
+                def hasButterknifePlugin = it.plugins.hasPlugin('com.jakewharton.butterknife')
+
+                if (!hasAutoService) {
+                    new File(sourceFolder, "main/java/gradle/example/Service.java").delete()
+                }
+                if (!hasButterknife || (!hasButterknifePlugin && it.plugins.hasPlugin('com.android.library'))) {
+                    activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "")
+                }
+
+                if (hasButterknife && hasButterknifePlugin) {
+                    activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "@butterknife.BindView(R2.id.login_form)")
+                }
+
+                adjustPackage(it, "LoginActivity")
+                if (hasAutoService) {
+                    adjustPackage(it, "Service")
+                }
+            }
+        }
+    }
+}
+
+boolean hasDependency(Project project, String name) {
+    project.configurations.getByName("compile").resolve().find { it.name.contains(name) } != null
+}
+
+def adjustPackage(Project project, String className) {
+    def sourceFolder = new File(project.projectDir, 'src')
+    def sourceFile = new File(sourceFolder, "main/java/gradle/example/${className}.java")
+    def manifest = new File(sourceFolder, "main/AndroidManifest.xml").text;
+    def projectPackage = manifest.substring(manifest.indexOf('package="') + 9, manifest.indexOf('" xmlns:android'))
+
+    def exampleClassFolder = new File(sourceFolder, "main/java/${projectPackage.replace('.', '/')}");
+    exampleClassFolder.mkdirs();
+
+    sourceFile.text = sourceFile.text.replaceAll("package gradle.example;", "package ${projectPackage};")
+    sourceFile.renameTo(new File(exampleClassFolder, "${className}.java"))
 }

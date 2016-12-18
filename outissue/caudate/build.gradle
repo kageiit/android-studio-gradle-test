@@ -1,6 +1,6 @@
-apply plugin: 'com.android.library'; apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.library';
 dependencies {
-    apt deps.apt.daggerCompiler
+    annotationProcessor deps.apt.daggerCompiler
 
     compile project(':Padraig:ratafee')
 

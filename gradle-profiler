@@ -1,0 +1,7 @@
+if test -d ~/.gradle-profiler && git -C ~/.gradle-profiler status > /dev/null ; then
+  git -C ~/.gradle-profiler pull
+else
+  git clone git@github.com:gradle/gradle-profiler.git ~/.gradle-profiler --branch master --depth 1
+fi
+~/.gradle-profiler/gradlew -p ~/.gradle-profiler installDist
+~/.gradle-profiler/build/install/gradle-profiler/bin/gradle-profiler --project-dir . --scenario-file performance.scenarios "$@"

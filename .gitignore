@@ -9,3 +9,8 @@ build
 BUCK
 .buckd
 buck-out
+profile-out*
+gradle-user-home
+**/src/
+!**/src/*/AndroidManifest.xml
+!gradle/SourceTemplate/app/src
