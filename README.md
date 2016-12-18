@@ -5,10 +5,6 @@ Also provides an alternative build path using [Buck](https://buckbuild.com/) to 
 
 [![Master branch build status](https://travis-ci.org/kageiit/android-studio-gradle-test.svg?branch=master)](https://travis-ci.org/kageiit/android-studio-gradle-test)
 
-## Setup
-
-Run `./gradlew addSources` to generate source code for all subprojects.
-
 ## To build all apps with gradle:
 ```bash
 ./buildWithGradle
@@ -31,7 +27,9 @@ Installation instructions for: [Ant](http://ant.apache.org/), [Watchman](https:/
 ./buildWithBuck
 ```
 
-## Benchmarking and profiling
+## Benchmarking and profiling (Experimental)
+
+Run `./gradlew addSources` to generate source code for all subprojects.
 
 Use the Gradle profiler to `--benchmark` or `--profile` scenarios. The available scenarios are defined in `performance.scenarios`
 
