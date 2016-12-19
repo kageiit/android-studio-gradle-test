@@ -117,9 +117,7 @@ def addCommonConfigurationForAndroidModules(Project project) {
             abortOnError false
         }
     }
-    if (hasDependency(project, "butterknife-8")) {
-        project.plugins.apply('com.jakewharton.butterknife')
-    }
+    project.plugins.apply('com.jakewharton.butterknife')
 }
 
 apply plugin: 'com.uber.okbuck'
