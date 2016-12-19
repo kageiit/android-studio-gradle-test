@@ -31,7 +31,9 @@ Installation instructions for: [Ant](http://ant.apache.org/), [Watchman](https:/
 ./buildWithBuck
 ```
 
-## Benchmarking and profiling
+## Benchmarking and profiling (Experimental)
+
+Run `./gradlew addSources` to generate source code for all subprojects.
 
 Use the Gradle profiler to `--benchmark` or `--profile` scenarios. The available scenarios are defined in `performance.scenarios`
 

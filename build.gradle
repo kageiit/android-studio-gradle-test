@@ -6,7 +6,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0-beta1'
-        classpath ('com.uber:okbuck:0.12.1') {
+        classpath ('com.uber:okbuck:0.13.0') {
           exclude module: 'gradle'
         }
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
@@ -30,7 +30,6 @@ allprojects {
     }
 }
 
-def multidexApps = []
 subprojects { project ->
     group = "com.studio"
     afterEvaluate {
@@ -68,7 +67,6 @@ subprojects { project ->
         }
 
         if (project.plugins.hasPlugin('com.android.application')) {
-            multidexApps.add(project.name)
             project.android{
                 defaultConfig {
                     multiDexEnabled true
@@ -119,22 +117,15 @@ def addCommonConfigurationForAndroidModules(Project project) {
             abortOnError false
         }
     }
+    if (hasDependency(project, "butterknife-8")) {
+        project.plugins.apply('com.jakewharton.butterknife')
+    }
 }
 
 apply plugin: 'com.uber.okbuck'
 okbuck {
     target "android-${config.build.compileSdkVersion}"
     buildToolVersion config.build.buildToolsVersion
-    linearAllocHardLimit = multidexApps.collectEntries { target ->
-            [target, 16 * 1024 * 1024]
-    }
-    extraBuckOpts = multidexApps.collectEntries { target ->
-        [target, ["android_binary": [
-                    "trim_resource_ids = True",
-                ]
-            ]
-        ]
-    }
     experimental {
         parallel = true
     }
