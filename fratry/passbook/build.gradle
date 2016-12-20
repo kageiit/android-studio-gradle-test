@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
     annotationProcessor deps.other.recyclerview
     annotationProcessor deps.other.appcompat
@@ -9,10 +9,10 @@ dependencies {
     compile project(':outissue:nutate')
     compile project(':outissue:oleometer')
     compile project(':outissue:eyesore')
-    compile project(':outissue:stupendly');
+    compile project(':outissue:stupendly')
     compile project(':outissue:situla')
     compile project(':outissue:aricine')
-    compile project(':outissue:tristate');
+    compile project(':outissue:tristate')
     compile project(':outissue:defusion')
     compile deps.other.guava
     compile deps.other.rxlifecycle

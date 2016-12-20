@@ -1,7 +1,6 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
     compile project(':outissue:extended')
-    compile deps.other.butterknife
 
     testCompile deps.other.leanback
 }

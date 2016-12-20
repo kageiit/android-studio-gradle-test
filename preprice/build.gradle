@@ -1,6 +1,5 @@
-apply plugin: 'com.android.application';
+apply plugin: 'com.android.application'
 dependencies {
-    annotationProcessor deps.apt.butterKnifeCompiler
     annotationProcessor deps.other.recyclerview
     annotationProcessor deps.apt.daggerCompiler
     annotationProcessor deps.other.appcompat
@@ -13,7 +12,7 @@ dependencies {
     compile project(':outissue:stupendly')
     compile project(':outissue:caricetum:midship')
     compile project(':outissue:caricetum:skiapod')
-    compile project(':outissue:tristate');
+    compile project(':outissue:tristate')
     compile project(':outissue:defusion')
     compile project(':outissue:carnally')
 
@@ -29,10 +28,8 @@ dependencies {
     compile deps.other.geo
     compile deps.support.multidex
     compile deps.other.exo
-    compile deps.other.butterknife
     compile deps.other.mvp
     compile deps.other.utils
-    compile deps.other.bkCompiler
     compile deps.other.calligraphy
     compile deps.other.guava
     compile deps.other.picasso
@@ -41,7 +38,6 @@ dependencies {
     compile deps.other.javax
     compile deps.other.javaxInject
     compile deps.other.javapoet
-    compile deps.other.bkCompiler
     compile deps.other.crittercism
     compile deps.other.location
     compile deps.other.locationServiceGoogle

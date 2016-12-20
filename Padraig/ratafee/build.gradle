@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
     annotationProcessor deps.apt.daggerCompiler
 
@@ -11,7 +11,6 @@ dependencies {
     compile deps.external.dagger
     compile deps.external.timber
     compile deps.other.exo
-    compile deps.other.butterknife
     compile deps.other.autoValueGson
 
     provided deps.apt.javax

@@ -1,6 +1,5 @@
 def versions = [
         androidToolsVersion: '25.3.0-beta1',
-        butterKnifeVersion : '8.4.0',
         daggerVersion      : '2.8',
         leakCanaryVersion  : '1.5',
         playServicesVersion: '10.0.1',
@@ -30,7 +29,6 @@ def annotationProcessor = [
         autoService         : 'com.google.auto.service:auto-service:1.0-rc2',
         autoValue           : 'com.google.auto.value:auto-value:1.4-rc1',
         autoValueAnnotations: 'com.jakewharton.auto.value:auto-value-annotations:1.2-update1',
-        butterKnifeCompiler : "com.jakewharton:butterknife-compiler:${versions.butterKnifeVersion}",
         daggerCompiler      : "com.google.dagger:dagger-compiler:${versions.daggerVersion}",
         javax               : 'javax.inject:javax.inject:1',
         javaxInject         : 'javax.inject:javax.inject:1',
@@ -51,7 +49,6 @@ def external = [
         android        : 'com.google.android:android:4.1.1.4',
         braintree      : 'com.braintreepayments:encryption:2.1.0',
         braintreesdk   : 'com.braintreepayments.api:braintree:2.3.6',
-        butterKnife    : "com.jakewharton:butterknife:${versions.butterKnifeVersion}",
         calligraphy    : 'uk.co.chrisjenx:calligraphy:2.2.0',
         dagger         : "com.google.dagger:dagger:${versions.daggerVersion}",
         deviceYearClass: 'com.facebook.device.yearclass:yearclass:1.0.1',
@@ -140,7 +137,6 @@ def other = [
         rave                 : 'com.uber:rave:0.6.0',
         support              : 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0',
         fresco               : 'com.facebook.fresco:fresco:0.11.0',
-        butterknife          : 'com.jakewharton:butterknife:8.2.1',
         mvp                  : 'com.hannesdorfmann.mosby:mvp:2.0.1',
         espresso             : "com.android.support.test.espresso:espresso-core:2.2.2",
         burst                : "com.squareup.burst:burst-junit4:1.1.0",
@@ -175,7 +171,6 @@ def other = [
         javaxInject          : 'javax.inject:javax.inject:1',
         javapoet             : 'com.squareup:javapoet:1.7.0',
         raveCompiler         : 'com.uber:rave-compiler:0.6.0',
-        bkCompiler           : 'com.jakewharton:butterknife-compiler:8.2.1',
 ]
 
 ext.config = [

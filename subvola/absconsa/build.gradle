@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
     androidTestCompile deps.support.annotations
     androidTestCompile deps.other.recyclerview
@@ -13,7 +13,6 @@ dependencies {
     compile deps.external.dagger
     compile deps.external.picasso
     compile deps.other.retrofit
-    compile deps.other.butterknife
     compile deps.other.javaxInject
     compile deps.other.appcompat
     compile deps.other.geo

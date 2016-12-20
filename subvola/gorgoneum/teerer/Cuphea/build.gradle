@@ -1,7 +1,5 @@
-apply plugin: 'com.android.library';
-apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.android.library'
 dependencies {
-    annotationProcessor deps.apt.butterKnifeCompiler
     annotationProcessor deps.apt.daggerCompiler
     annotationProcessor deps.other.recyclerview
     annotationProcessor project(':outissue:caricetum:handbolt')
