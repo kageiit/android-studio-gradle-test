@@ -1,7 +1,5 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
-    compile deps.other.bkCompiler
-
     compile project (':outissue:nonjurant')
 
     testCompile deps.other.leanback

@@ -1,9 +1,8 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
     compile project(':outissue:caricetum:midship')
 
     compile deps.other.geo
-    compile deps.other.butterknife
     compile project(':outissue:nutate')
     compile project(':outissue:browntail')
 

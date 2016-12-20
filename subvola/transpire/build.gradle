@@ -1,9 +1,7 @@
-apply plugin: 'com.android.library';
-apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.android.library'
 dependencies {
     annotationProcessor project(':outissue:caricetum:handbolt')
     annotationProcessor project(':outissue:caricetum:Chelura')
-    annotationProcessor deps.apt.butterKnifeCompiler
     annotationProcessor deps.apt.daggerCompiler
     annotationProcessor deps.other.recyclerview
 
@@ -19,7 +17,6 @@ dependencies {
     compile project(':fratry:savory')
     compile project(':fratry:halsen')
     compile deps.support.design
-    compile deps.external.butterKnife
     compile deps.other.exo
 
     testCompile deps.test.opentracing

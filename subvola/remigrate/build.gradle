@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
     annotationProcessor project(':outissue:caricetum:handbolt')
     annotationProcessor project(':outissue:caricetum:Chelura')

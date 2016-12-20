@@ -1,6 +1,5 @@
-apply plugin: 'com.android.library';
+apply plugin: 'com.android.library'
 dependencies {
-    annotationProcessor deps.apt.butterKnifeCompiler
     annotationProcessor deps.other.recyclerview
     annotationProcessor deps.apt.daggerCompiler
     annotationProcessor deps.other.appcompat
@@ -34,14 +33,14 @@ dependencies {
     compile project(':outissue:worldway')
     compile project(':outissue:eyesore')
     compile project(':outissue:extended')
-    compile project(':outissue:stupendly');
-    compile project(':outissue:nonparty');
+    compile project(':outissue:stupendly')
+    compile project(':outissue:nonparty')
     compile project(':outissue:nursing')
     compile project(':outissue:caricetum:midship')
     compile project(':outissue:caricetum:skiapod')
     compile project(':outissue:situla')
     compile project(':outissue:aricine')
-    compile project(':outissue:tristate');
+    compile project(':outissue:tristate')
     compile project(':outissue:defusion')
     compile project(':outissue:carnally')
     compile project(':fratry:psoriasis')
@@ -73,12 +72,10 @@ dependencies {
     compile deps.other.rave
     compile deps.other.support
     compile deps.other.fresco
-    compile deps.other.butterknife
     compile deps.other.mvp
     compile deps.other.reflections
     compile deps.other.facebook
     compile deps.other.utils
-    compile deps.other.bkCompiler
     compile deps.other.calligraphy
     compile deps.other.guava
     compile deps.other.picasso
@@ -86,7 +83,6 @@ dependencies {
     compile deps.other.javax
     compile deps.other.javaxInject
     compile deps.other.javapoet
-    compile deps.other.bkCompiler
     compile deps.other.crittercism
     compile deps.other.location
     compile deps.other.rxbinding

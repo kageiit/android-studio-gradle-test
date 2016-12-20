@@ -9,7 +9,6 @@ buildscript {
         classpath ('com.uber:okbuck:0.13.0') {
           exclude module: 'gradle'
         }
-        classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
     }
 }
 
@@ -117,7 +116,6 @@ def addCommonConfigurationForAndroidModules(Project project) {
             abortOnError false
         }
     }
-    project.plugins.apply('com.jakewharton.butterknife')
 }
 
 apply plugin: 'com.uber.okbuck'
@@ -169,19 +167,9 @@ task addSources {
 
                 def activityClass = new File(sourceFolder, "main/java/gradle/example/LoginActivity.java")
 
-                def hasButterknife = hasDependency(it, "butterknife-8")
-                def hasAutoService = hasDependency(it, "auto-service");
-                def hasButterknifePlugin = it.plugins.hasPlugin('com.jakewharton.butterknife')
-
+                def hasAutoService = hasDependency(it, "auto-service")
                 if (!hasAutoService) {
                     new File(sourceFolder, "main/java/gradle/example/Service.java").delete()
-                }
-                if (!hasButterknife || (!hasButterknifePlugin && it.plugins.hasPlugin('com.android.library'))) {
-                    activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "")
-                }
-
-                if (hasButterknife && hasButterknifePlugin) {
-                    activityClass.text = activityClass.text.replace("@butterknife.BindView(R.id.login_form)", "@butterknife.BindView(R2.id.login_form)")
                 }
 
                 adjustPackage(it, "LoginActivity")
@@ -200,11 +188,11 @@ boolean hasDependency(Project project, String name) {
 def adjustPackage(Project project, String className) {
     def sourceFolder = new File(project.projectDir, 'src')
     def sourceFile = new File(sourceFolder, "main/java/gradle/example/${className}.java")
-    def manifest = new File(sourceFolder, "main/AndroidManifest.xml").text;
+    def manifest = new File(sourceFolder, "main/AndroidManifest.xml").text
     def projectPackage = manifest.substring(manifest.indexOf('package="') + 9, manifest.indexOf('" xmlns:android'))
 
-    def exampleClassFolder = new File(sourceFolder, "main/java/${projectPackage.replace('.', '/')}");
-    exampleClassFolder.mkdirs();
+    def exampleClassFolder = new File(sourceFolder, "main/java/${projectPackage.replace('.', '/')}")
+    exampleClassFolder.mkdirs()
 
     sourceFile.text = sourceFile.text.replaceAll("package gradle.example;", "package ${projectPackage};")
     sourceFile.renameTo(new File(exampleClassFolder, "${className}.java"))

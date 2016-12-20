@@ -1,11 +1,8 @@
-apply plugin: 'com.android.library';
-apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.android.library'
 dependencies {
     compile project(':outissue:aricine')
     compile project(':outissue:nursing')
-    annotationProcessor deps.apt.butterKnifeCompiler
 
-    compile deps.external.butterKnife
     compile deps.other.geo
     compile deps.support.appCompat
     compile deps.support.design

@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application';
+apply plugin: 'com.android.application'
 dependencies {
     annotationProcessor deps.other.recyclerview
     annotationProcessor deps.apt.daggerCompiler
@@ -6,12 +6,12 @@ dependencies {
     annotationProcessor project(':outissue:caricetum:Chelura')
 
     compile project(':outissue:nutate')
-    compile project(':outissue:worldway');
+    compile project(':outissue:worldway')
     compile project(':outissue:bracciale')
     compile project(':outissue:oleometer')
     compile project(':outissue:airified')
     compile project(':outissue:caricetum:midship')
-    compile project(':outissue:tristate');
+    compile project(':outissue:tristate')
     compile project(':outissue:defusion')
     compile project(':outissue:carnally')
 

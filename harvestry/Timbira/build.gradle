@@ -1,10 +1,7 @@
-apply plugin: 'com.android.library';
-apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.android.library'
 dependencies {
-    annotationProcessor deps.apt.butterKnifeCompiler
     compile project(':outissue:carnally')
     compile project(':outissue:Glumaceae')
-    compile deps.external.butterKnife
     compile deps.external.rxjava
     compile deps.other.retrofit
     testCompile deps.other.leanback
