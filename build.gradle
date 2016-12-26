@@ -162,6 +162,7 @@ task addSources {
                 println "Adding sources to: " + sourceFolder
                 copy {
                     from fileTree(new File(project.rootDir, "gradle/SourceTemplate/app/src/")).exclude("main/AndroidManifest.xml")
+                    from fileTree(new File(project.rootDir, "gradle/SourceTemplate/java-lib/src/"))
                     into sourceFolder
                 }
 
@@ -173,8 +174,17 @@ task addSources {
                 }
 
                 adjustPackage(it, "LoginActivity")
+                adjustPackage(it, "Thing")
                 if (hasAutoService) {
                     adjustPackage(it, "Service")
+                }
+            }
+            if (it.plugins.hasPlugin('java')) {
+                def sourceFolder = new File(it.projectDir, 'src')
+                println "Adding sources to: " + sourceFolder
+                copy {
+                    from fileTree(new File(project.rootDir, "gradle/SourceTemplate/java-lib/src/"))
+                    into sourceFolder
                 }
             }
         }
