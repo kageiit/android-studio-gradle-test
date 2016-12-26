@@ -1,5 +1,8 @@
 abiChange {
   tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
   apply-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
 }
 
@@ -38,12 +41,18 @@ nonAbiChangeWithInstantRun {
 
 androidManifestChange {
   tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
   apply-android-manifest-change-to = "./outissue/carnally/src/main/AndroidManifest.xml"
 }
 
 androidResourceChange {
-    tasks = [":phthalic:assembleDebug"]
-    apply-android-resource-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
+  tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
+  apply-android-resource-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
 }
 
 androidResourceValueChange {
@@ -52,12 +61,18 @@ androidResourceValueChange {
 }
 
 classpathResourceChange {
-    tasks = [":phthalic:assembleDebug"]
-    apply-property-resource-change-to = "./outissue/caricetum/concher/src/main/resources/app.properties"
+  tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
+  apply-property-resource-change-to = "./outissue/caricetum/concher/src/main/resources/app.properties"
 }
 
 upToDateSingleVariant {
   tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
 }
 
 rebuildSingleVariant {
@@ -68,6 +83,9 @@ rebuildSingleVariant {
 upToDateAllVariants {
   tasks = ["assemble"]
   gradle-args = ["-x", "lintVitalRelease"]
+  buck {
+    type = "all"
+  }
 }
 
 rebuildAllVariants {
