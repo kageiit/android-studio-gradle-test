@@ -186,6 +186,7 @@ task addSources {
                     from fileTree(new File(project.rootDir, "gradle/SourceTemplate/java-lib/src/"))
                     into sourceFolder
                 }
+                adjustPackage(it, "Thing", "gradle.example.${it.name}")
             }
         }
     }
@@ -197,9 +198,14 @@ boolean hasDependency(Project project, String name) {
 
 def adjustPackage(Project project, String className) {
     def sourceFolder = new File(project.projectDir, 'src')
-    def sourceFile = new File(sourceFolder, "main/java/gradle/example/${className}.java")
     def manifest = new File(sourceFolder, "main/AndroidManifest.xml").text
     def projectPackage = manifest.substring(manifest.indexOf('package="') + 9, manifest.indexOf('" xmlns:android'))
+    adjustPackage(project, className, projectPackage)
+}
+
+def adjustPackage(Project project, String className, String projectPackage) {
+    def sourceFolder = new File(project.projectDir, 'src')
+    def sourceFile = new File(sourceFolder, "main/java/gradle/example/${className}.java")
 
     def exampleClassFolder = new File(sourceFolder, "main/java/${projectPackage.replace('.', '/')}")
     exampleClassFolder.mkdirs()
