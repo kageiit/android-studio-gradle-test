@@ -17,6 +17,25 @@ abiChangeWithInstantRun {
   ]
 }
 
+nonAbiChange {
+  tasks = [":phthalic:assembleDebug"]
+  apply-non-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
+}
+
+nonAbiChangeWithInstantRun {
+  tasks = [":phthalic:assembleDebug"]
+  apply-non-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
+  gradle-args = [
+    "-Pandroid.injected.invoked.from.ide=true",
+    "-Pandroid.injected.build.api=25",
+    "-Pandroid.injected.build.density=420dpi",
+    "-Pandroid.injected.build.abi=x86",
+    "-Pandroid.injected.restrict.variant.name=debug",
+    "-Pandroid.injected.restrict.variant.project=:phthalic",
+    "-Pandroid.optional.compilation=INSTANT_DEV"
+  ]
+}
+
 androidManifestChange {
   tasks = [":phthalic:assembleDebug"]
   apply-android-manifest-change-to = "./outissue/carnally/src/main/AndroidManifest.xml"
@@ -25,6 +44,11 @@ androidManifestChange {
 androidResourceChange {
     tasks = [":phthalic:assembleDebug"]
     apply-android-resource-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
+}
+
+androidResourceValueChange {
+    tasks = [":phthalic:assembleDebug"]
+    apply-android-resource-value-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
 }
 
 classpathResourceChange {
