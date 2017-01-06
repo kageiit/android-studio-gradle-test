@@ -19,6 +19,9 @@ allprojects {
     }
 
     def androidHome = System.getenv("ANDROID_HOME")
+    if (!androidHome) {
+        throw new IllegalArgumentException("ANDROID_HOME environment variable is not set.")
+    }
     repositories {
         maven {
             url "$androidHome/extras/android/m2repository/"
