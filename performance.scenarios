@@ -22,6 +22,9 @@ abiChangeWithInstantRun {
 
 nonAbiChange {
   tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
   apply-non-abi-change-to = "outissue/carnally/src/main/java/com/studio/carnally/LoginActivity.java"
 }
 
@@ -56,8 +59,11 @@ androidResourceChange {
 }
 
 androidResourceValueChange {
-    tasks = [":phthalic:assembleDebug"]
-    apply-android-resource-value-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
+  tasks = [":phthalic:assembleDebug"]
+  buck {
+    targets = ["//phthalic:bin_debug"]
+  }
+  apply-android-resource-value-change-to = "./outissue/carnally/src/main/res/values/strings.xml"
 }
 
 classpathResourceChange {
