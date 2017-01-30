@@ -4,7 +4,7 @@
 ##
 ##  Buck wrapper script to invoke okbuck when needed, before running buck
 ##
-##  Created by OkBuck Gradle Plugin on : Sun Dec 18 12:19:24 PST 2016
+##  Created by OkBuck Gradle Plugin on : Sun Jan 29 18:05:09 PST 2017
 ##
 #########################################################################
 
@@ -69,16 +69,15 @@ removeWatch ( ) {
 getToClean ( ) {
     ensureWatch
 
-    watchman --output-encoding=json -j 2>&1 <<-EOT
+    watchman --output-encoding=json --no-pretty -j 2>&1 <<-EOT
 ["query", "$WORKING_DIR", {
     "expression": ["allof",
         ["type", "f"],
         ["anyof",
-            ["imatch", ".buckconfig.local", "wholename"],
-            ["imatch", "**/BUCK", "wholename"]
+            ["name", ["BUCK", ".buckconfig.local"]]
         ],
         ["not",
-            ["imatch", ".okbuck/**/BUCK", "wholename"]
+            ["dirname", ".okbuck"]
         ]
     ],
     "fields": ["name"]
@@ -89,30 +88,29 @@ EOT
 getChanges ( ) {
     ensureWatch
 
-    WATCHED_CHANGES=`watchman --output-encoding=json -j 2>&1 <<-EOT
+    WATCHED_CHANGES=`watchman --output-encoding=json --no-pretty -j 2>&1 <<-EOT
 ["query", "$WORKING_DIR", {
     "since": "n:okbuck_trig",
     "expression": ["allof",
         ["type", "f"],
         ["anyof",
-            ["imatch", "**/*.gradle", "wholename"],
-            ["imatch", "**/src/**/AndroidManifest.xml", "wholename"],
-            ["imatch", "**/gradle-wrapper.properties", "wholename"],
-            ["imatch", "**/lint.xml", "wholename"]
+            ["suffix", "gradle"],
+            ["name", ["gradle-wrapper.properties", "lint.xml"]],
+            ["match", "**/src/**/AndroidManifest.xml", "wholename"]
         ]
     ],
     "fields": ["name"]
 }]
 EOT`
-    SOURCE_ROOTS=`watchman --output-encoding=json -j 2>&1 <<-EOT
+    SOURCE_ROOTS=`watchman --output-encoding=json --no-pretty -j 2>&1 <<-EOT
 ["query", ".", {
     "since": "n:okbuck_source_roots",
     "expression": ["allof",
         ["type", "d"],
         ["anyof",
-            ["imatch", "**/src/**/java", "wholename"],
-            ["imatch", "**/src/**/res", "wholename"],
-            ["imatch", "**/src/**/resources", "wholename"]
+            ["match", "**/src/**/java", "wholename"],
+            ["match", "**/src/**/res", "wholename"],
+            ["match", "**/src/**/resources", "wholename"]
         ]
     ],
     "fields": ["new", "exists", "name"]
@@ -143,7 +141,7 @@ runOkBuck ( ) {
     fi
 
     rm -f $OKBUCK_SUCCESS
-    ( $WORKING_DIR/gradlew -p $WORKING_DIR okbuck -Dokbuck.wrapper=true -Pandroid.enableImprovedDependenciesResolution=true $EXTRA_OKBUCK_ARGS &&
+    ( $WORKING_DIR/gradlew -p $WORKING_DIR okbuck -Dokbuck.wrapper=true $EXTRA_OKBUCK_ARGS &&
     updateOkBuckSuccess && success "PROCEEDING WITH BUCK" ) || die "OKBUCK FAILED"
 }
 
