@@ -105,6 +105,8 @@ def addCommonConfigurationForAndroidModules(Project project) {
             minSdkVersion config.build.minSdkVersion
             targetSdkVersion config.build.targetSdkVersion
             vectorDrawables.useSupportLibrary = true
+            versionCode 1
+            versionName "1.0.0"
         }
 
         compileOptions {
@@ -122,6 +124,7 @@ apply plugin: 'com.uber.okbuck'
 okbuck {
     target = "android-${config.build.compileSdkVersion}"
     buildToolVersion = config.build.buildToolsVersion
+    resourceUnion = false
 }
 
 def ENTRIES_TO_DELETE = [
@@ -193,4 +196,36 @@ def adjustPackage(Project project, String className) {
 
     sourceFile.text = sourceFile.text.replaceAll("package gradle.example;", "package ${projectPackage};")
     sourceFile.renameTo(new File(exampleClassFolder, "${className}.java"))
+}
+
+// Prevents resolving any configurations during evaluation
+class ConfigurationNullifierListener implements DependencyResolutionListener {
+
+    private final Project root
+
+    ConfigurationNullifierListener(Project root) {
+        this.root = root
+    }
+
+    void beforeResolve(ResolvableDependencies dependencies) {
+        String name = dependencies.name
+        String path = dependencies.path
+        String projectPath = path.substring(0, path.lastIndexOf(":"))
+        Project p = root.project(projectPath)
+        try {
+            Configuration config = p.configurations.getByName(name)
+            config.dependencies.clear()
+            config.extendsFrom = []
+        } catch(Exception ignored) { }
+    }
+
+    void afterResolve(ResolvableDependencies dependencies) { }
+}
+
+if (System.getProperty("okbuck.wrapper", "false") == "true") {
+    final ConfigurationNullifierListener configurationNullifierListener = new ConfigurationNullifierListener(project)
+    gradle.addListener(configurationNullifierListener)
+    gradle.projectsEvaluated {
+        gradle.removeListener(configurationNullifierListener)
+    }
 }
