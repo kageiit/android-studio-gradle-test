@@ -127,7 +127,6 @@ apply plugin: 'com.uber.okbuck'
 okbuck {
     target = "android-${config.build.compileSdkVersion}"
     buildToolVersion = config.build.buildToolsVersion
-    resourceUnion = false
 }
 
 def ENTRIES_TO_DELETE = [
