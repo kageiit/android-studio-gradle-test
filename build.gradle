@@ -223,35 +223,3 @@ def adjustPackage(Project project, String className, String projectPackage) {
     sourceFile.text = sourceFile.text.replaceAll("package gradle.example;", "package ${projectPackage};")
     sourceFile.renameTo(new File(exampleClassFolder, "${className}.java"))
 }
-
-// Prevents resolving any configurations during evaluation
-class ConfigurationNullifierListener implements DependencyResolutionListener {
-
-    private final Project root
-
-    ConfigurationNullifierListener(Project root) {
-        this.root = root
-    }
-
-    void beforeResolve(ResolvableDependencies dependencies) {
-        String name = dependencies.name
-        String path = dependencies.path
-        String projectPath = path.substring(0, path.lastIndexOf(":"))
-        Project p = root.project(projectPath)
-        try {
-            Configuration config = p.configurations.getByName(name)
-            config.dependencies.clear()
-            config.extendsFrom = []
-        } catch(Exception ignored) { }
-    }
-
-    void afterResolve(ResolvableDependencies dependencies) { }
-}
-
-if (System.getProperty("okbuck.wrapper", "false") == "true") {
-    final ConfigurationNullifierListener configurationNullifierListener = new ConfigurationNullifierListener(project)
-    gradle.addListener(configurationNullifierListener)
-    gradle.projectsEvaluated {
-        gradle.removeListener(configurationNullifierListener)
-    }
-}
