@@ -2,7 +2,7 @@
     glob_handler = watchman
     allow_symlinks = forbid
     ide = intellij
-    ignore = .git, .idea, .gradle, local.properties, **/.DS_Store, **/*.iml
+    ignore = .git, .idea, .gradle, .buckd, local.properties, **/.DS_Store, **/*.iml
     temp_files = ^#.*#$, .*~$, .*\.swp$
     parallel_parsing = true
     build_file_search_method = watchman
@@ -10,8 +10,11 @@
 [httpserver]
     port = 0
 
-[buildfile]
-  includes = //DEFS
+[java]
+    jar_spool_mode = direct_to_jar
+    abi_generation_mode = source
+    suggest_dependencies = false
+    skip_checking_missing_deps = true
 
 [build]
-  threads = 16
+    metadata_storage = rocksdb
