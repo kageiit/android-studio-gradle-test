@@ -5,8 +5,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0-beta3'
-        classpath ('com.uber:okbuck:0.16.3') {
+        classpath 'com.android.tools.build:gradle:2.4.0-alpha3'
+        classpath ('com.uber:okbuck:0.19.6') {
           exclude module: 'gradle'
         }
     }
