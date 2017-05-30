@@ -4,7 +4,7 @@
 ##
 ##  Buck wrapper script to invoke okbuck when needed, before running buck
 ##
-##  Created by OkBuck Gradle Plugin on : Wed Mar 29 08:26:32 PDT 2017
+##  Created by OkBuck Gradle Plugin on : Tue May 30 14:39:04 PDT 2017
 ##
 #########################################################################
 
@@ -55,7 +55,7 @@ DEFAULT_BUCK_INSTALL_DIR="$HOME/.gradle/caches/okbuck/buck"
 CUSTOM_BUCK_REPO=""
 CUSTOM_REMOTE_NAME="custom"
 OKBUCK_SUCCESS="$WORKING_DIR/build/okbuck.success"
-OKBUCK_DIR=".okbuck"
+OKBUCK_DIR="$WORKING_DIR/.okbuck"
 MAX_DISPLAY_CHANGES=10
 
 ensureWatch ( ) {
@@ -74,13 +74,16 @@ getChanges ( ) {
             ["suffix", "gradle"],
             ["name", ["gradle-wrapper.properties", "lint.xml"]],
             ["match", "**/src/**/AndroidManifest.xml", "wholename"]
+        ],
+        ["not",
+            ["dirname", ".okbuck"]
         ]
     ],
     "fields": ["name"]
 }]
 EOT`
     SOURCE_ROOTS=`watchman --output-encoding=json --no-pretty -j 2>&1 <<-EOT
-["query", ".", {
+["query", "$WORKING_DIR", {
     "since": "n:okbuck_source_roots",
     "expression": ["allof",
         ["type", "d"],
@@ -88,6 +91,9 @@ EOT`
             ["match", "**/src/**/java", "wholename"],
             ["match", "**/src/**/res", "wholename"],
             ["match", "**/src/**/resources", "wholename"]
+        ],
+        ["not",
+            ["dirname", ".okbuck"]
         ]
     ],
     "fields": ["new", "exists", "name"]
@@ -152,7 +158,7 @@ setupBuckBinary ( ) {
             if [[ -z "$REMOTE_EXISTS" ]]; then
                 git remote add $CUSTOM_REMOTE_NAME $CUSTOM_BUCK_REPO
             fi
-            cd $WORKING_DIR
+            cd -
         fi
 
         BUCK_BINARY="$BUCK_HOME/bin/buck"
@@ -184,6 +190,15 @@ setupBuckRun ( ) {
     setupBuckBinary
 }
 
+# Handle parameters and flags
+handleParams ( ) {
+    # Go directly to kill. Do not run okbuck.
+    if [[ "kill" == $1 ]]; then
+        SKIP_OKBUCK=true
+    fi
+}
+
+handleParams "$@"
 setupBuckRun
 
 # Invoke buck binary with arguments

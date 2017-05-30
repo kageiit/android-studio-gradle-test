@@ -3,10 +3,8 @@
         "buck-out",
         ".idea",
         ".buckd",
-        "build",
         ".gradle",
-        ".swp",
-        "java"
+        ".swp"
     ],
     "fsevents_latency": 0.05,
     "suppress_recrawl_warnings": true

@@ -1,5 +1,5 @@
 def versions = [
-        androidToolsVersion: '25.3.0-beta1',
+        androidToolsVersion: '25.4.0-alpha5\7',
         daggerVersion      : '2.8',
         leakCanaryVersion  : '1.5',
         playServicesVersion: '10.0.1',
