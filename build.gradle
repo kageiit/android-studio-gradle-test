@@ -12,8 +12,9 @@ buildscript {
     }
 }
 
+apply from: rootProject.file('dependencies.gradle')
+
 allprojects {
-    project -> project.apply from: rootProject.file('dependencies.gradle')
     repositories {
         jcenter()
     }
