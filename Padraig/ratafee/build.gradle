@@ -11,7 +11,7 @@ dependencies {
     compile deps.external.dagger
     compile deps.external.timber
     compile deps.other.exo
-    compile deps.other.autoValueGson
+    annotationProcessor deps.other.autoValueGson
 
     provided deps.apt.javax
 

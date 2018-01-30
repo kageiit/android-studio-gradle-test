@@ -7,5 +7,8 @@ def android_binary(
     original_android_binary(
         name,
         trim_resource_ids = True,
+        aapt_mode='aapt2',
+        no_auto_version_resources=True,
+        skip_crunch_pngs=True,
         **kwargs
     )

@@ -1,18 +1,18 @@
 def versions = [
-        androidToolsVersion: '25.4.0-alpha5\7',
-        daggerVersion      : '2.8',
+        androidToolsVersion: '26.0.0-alpha09',
+        daggerVersion      : '2.12',
         leakCanaryVersion  : '1.5',
         playServicesVersion: '10.0.1',
         roasterVersion     : '2.18.7.Final',
         stethoVersion      : '1.4.0',
-        supportVersion     : '25.1.0',
+        supportVersion     : '27.0.1',
 ]
 
 def buildConfig = [
-        compileSdkVersion: 25,
+        compileSdkVersion: 27,
         minSdkVersion    : 21,
-        targetSdkVersion : 25,
-        buildToolsVersion: '25.0.0',
+        targetSdkVersion : 27,
+        buildToolsVersion: '27.0.1',
 ]
 
 def android = [
@@ -130,7 +130,6 @@ def other = [
         reactivenet          : 'com.github.pwittchen:reactivenetwork:0.4.0',
         exo                  : 'com.google.android.exoplayer:exoplayer:r1.5.9',
         cast                 : "com.google.android.gms:play-services-cast:${versions.playServicesVersion}",
-        firebase             : "com.firebase:firebase-client-android:2.5.2",
         aws                  : "com.amazonaws:aws-java-sdk:1.11.18",
         retrofit             : 'com.squareup.retrofit2:retrofit:2.1.0',
         socket               : 'io.socket:socket.io-client:0.7.0',

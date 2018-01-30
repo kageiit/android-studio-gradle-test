@@ -8,7 +8,7 @@ dependencies {
     compile deps.other.rxlifecycle
     compile deps.other.rxrelay
     compile deps.other.dagger
-    compile deps.other.autoValueGson
+    annotationProcessor deps.other.autoValueGson
 
     compile deps.external.dagger
 

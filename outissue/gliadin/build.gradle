@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 dependencies {
     compile deps.other.javautil
-    compile deps.other.autovalue
+    annotationProcessor deps.other.autovalue
 
     testCompile deps.other.leanback
 }
