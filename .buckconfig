@@ -65,6 +65,7 @@
     suggest_dependencies = false
     skip_checking_missing_deps = true
     compile_against_abis = true
+    abi_generation_mode = source_only
 
 [ndk]
     gcc_version=4.9

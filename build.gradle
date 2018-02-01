@@ -118,10 +118,13 @@ okbuck {
     target = "android-${config.build.compileSdkVersion}"
     buildToolVersion = config.build.buildToolsVersion
     resourceUnion = false
+    libraryBuildConfig = false
     lint {
         disabled = true
     }
     extraDefs += project.file('DEFS')
+
+    buckBinary = "com.github.facebook:buck:82d7aeeedf8f6f02e588ba47e0401851abb951eb@pex"
 
     afterEvaluate {
         dependencies {
