@@ -23,7 +23,7 @@ dependencies {
     compile deps.other.retrofit
     compile deps.other.permissionGen
     compile deps.other.blockcanary
-    compile deps.other.autovalue
+    annotationProcessor deps.other.autovalue
 
     debugCompile deps.debug.stetho
 

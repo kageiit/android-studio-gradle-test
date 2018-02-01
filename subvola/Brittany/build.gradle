@@ -4,7 +4,7 @@ dependencies {
     compile project(':outissue:extended')
     compile project(':outissue:defusion')
     compile project(':fratry:subradius')
-    compile deps.other.autovalue
+    annotationProcessor deps.other.autovalue
     provided deps.other.roasterJdt
     compile deps.other.gson
     compile deps.other.shuffle

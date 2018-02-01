@@ -7,7 +7,7 @@ dependencies {
     annotationProcessor deps.apt.daggerCompiler
 
     compile deps.other.utils
-    compile deps.other.autoValueGson
+    annotationProcessor deps.other.autoValueGson
 
     compile deps.external.rxjava
     compile deps.external.rxrelay

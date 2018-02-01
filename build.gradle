@@ -1,14 +1,12 @@
 buildscript {
     repositories {
-        mavenLocal()
         jcenter()
+        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
-        classpath ('com.uber:okbuck:0.20.10') {
-          exclude module: 'gradle'
-        }
+        classpath 'com.android.tools.build:gradle:3.1.0-alpha09'
+        classpath 'com.uber:okbuck:0.33.0-alpha02'
     }
 }
 
@@ -17,16 +15,7 @@ apply from: rootProject.file('dependencies.gradle')
 allprojects {
     repositories {
         jcenter()
-    }
-
-    def androidHome = System.getenv("ANDROID_HOME")
-    repositories {
-        maven {
-            url "$androidHome/extras/android/m2repository/"
-        }
-        maven {
-            url "$androidHome/extras/google/m2repository/"
-        }
+        google()
     }
 }
 
@@ -53,9 +42,6 @@ subprojects { project ->
                     force 'com.android.support:animated-vector-drawable:24.2.1'
                     force 'com.android.support:support-v4:24.2.1'
                 }
-            }
-            resolutionStrategy {
-                force 'com.google.guava:guava:19.0'
             }
         }
 
@@ -95,13 +81,16 @@ subprojects { project ->
 }
 
 def addCommonConfigurationForJavaModules(Project project) {
-    project.sourceCompatibility = JavaVersion.VERSION_1_7
-    project.targetCompatibility = JavaVersion.VERSION_1_7
+    project.sourceCompatibility = JavaVersion.VERSION_1_8
+    project.targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 def addCommonConfigurationForAndroidModules(Project project) {
     project.dependencies {
-        compile 'com.google.auto.service:auto-service:1.0-rc2'
+        annotationProcessor 'com.google.auto.service:auto-service:1.0-rc2'
+    }
+    project.configurations.all {
+        exclude module: "log4j-core"
     }
     project.android {
         compileSdkVersion config.build.compileSdkVersion
@@ -114,8 +103,8 @@ def addCommonConfigurationForAndroidModules(Project project) {
         }
 
         compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_7
-            targetCompatibility JavaVersion.VERSION_1_7
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
         }
 
         lintOptions {
@@ -129,6 +118,28 @@ okbuck {
     target = "android-${config.build.compileSdkVersion}"
     buildToolVersion = config.build.buildToolsVersion
     resourceUnion = false
+    libraryBuildConfig = false
+    lint {
+        disabled = true
+    }
+    extraDefs += project.file('DEFS')
+
+    buckBinary = "com.github.facebook:buck:82d7aeeedf8f6f02e588ba47e0401851abb951eb@pex"
+
+    afterEvaluate {
+        dependencies {
+            forcedOkbuck deps.support.values()
+            forcedOkbuck deps.playServices.values()
+            forcedOkbuck deps.apt.values()
+            forcedOkbuck deps.external.gson
+            forcedOkbuck deps.external.okio
+            forcedOkbuck deps.external.retrofit
+            forcedOkbuck deps.external.rxandroid
+            forcedOkbuck deps.external.rxbinding
+            forcedOkbuck deps.external.rxjava
+            forcedOkbuck deps.external.timber
+        }
+    }
 }
 
 def ENTRIES_TO_DELETE = [

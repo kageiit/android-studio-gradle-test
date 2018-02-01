@@ -1,11 +1,42 @@
-original_android_binary = android_binary
+res_package="gradle.example"
 
+original_android_library = android_library
+def android_library(
+    **kwargs
+    ):
+    original_android_library(
+        resource_union_package=res_package,
+        **kwargs
+    )
+
+original_android_binary = android_binary
 def android_binary(
-    name,
     **kwargs
     ):
     original_android_binary(
-        name,
         trim_resource_ids = True,
+        aapt_mode='aapt2',
+        no_auto_version_resources=True,
+        skip_crunch_pngs=True,
+        resource_union_package=res_package,
+        **kwargs
+    )
+
+original_android_resource = android_resource
+def android_resource(
+    package,
+    **kwargs
+    ):
+  original_android_resource(
+      package=res_package,
+      **kwargs
+    )
+
+original_robolectric_test = robolectric_test
+def robolectric_test(
+    **kwargs
+    ):
+    original_robolectric_test(
+        resource_union_package=res_package,
         **kwargs
     )

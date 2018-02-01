@@ -3,37 +3,50 @@
     temp_files = ^#.*#$, .*~$, .*\.swp$
     parallel_parsing = true
     build_file_search_method = watchman
-    remove_unused_libraries = true
+    intellij_aggregation_mode = shallow
     skip_build = true
+    disable_r_java_idea_generator = true
 
     ; Directories that do not contain input files.
     ; All of these directories should also appear in the "ignore_dirs" list
     ; in .watchmanconfig, with the exception of ".git".
     ; Common temp file patterns: vim, emacs, intelliJ
     ignore = \
-      .git, \
       .buckd, \
+      .git, \
       .gradle, \
-      build, \
+      .idea, \
+      .okbuck/state, \
       bin, \
+      buck-out, \
+      build, \
+      buildSrc, \
+      config, \
+      gradle, \
       local.properties, \
-      **/.DS_Store, \
       **/*#, \
       **/*$, \
-      **/*~, \
+      **/**.orig, \
+      **/*.gradle, \
+      **/*.iml, \
+      **/*.linted, \
+      **/*.md, \
+      **/*.pyc, \
+      **/*.seerconfig, \
+      **/*.seertime, \
       **/*___jb_bak___, \
       **/*___jb_old___, \
       **/*___jb_tmp___, \
-      **/.*.swp, \
-      **/.*.swx, \
-      **/.*.swpx, \
-      **/.*.swo, \
-      **/*.pyc, \
-      **/.#*, \
       **/*~, \
+      **/*~, \
+      **/.#*, \
+      **/.*.swo, \
+      **/.*.swp, \
+      **/.*.swpx, \
+      **/.*.swx, \
+      **/.DS_Store, \
       **/4913, \
-      **/*.linted, \
-      **/*.iml, \
+      **/METADATA, \
 
     ; Forbid symlinks for source files so Buck does not have to dump its
     ; cache every time it encounters one.
@@ -44,11 +57,30 @@
 [httpserver]
     port = 0
 
+[tools]
+    proguard-max-heap-size = 4096M
+
 [java]
     jar_spool_mode = direct_to_jar
     suggest_dependencies = false
     skip_checking_missing_deps = true
     compile_against_abis = true
+    abi_generation_mode = source_only
+
+[ndk]
+    gcc_version=4.9
+    app_platform = android-24
+
+[buildfile]
+  includes = //tooling/buck-defs/DEFS
 
 [build]
-    metadata_storage = sqlite
+  metadata_storage = sqlite
+  action_graph_parallelization = enabled
+  file_hash_cache_mode = limited_prefix_tree
+
+[resources]
+  resource_aware_scheduling_enabled = true
+
+[ui]
+  build_rule_minimum_duration_millis = 500

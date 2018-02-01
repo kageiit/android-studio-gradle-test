@@ -12,7 +12,7 @@ dependencies {
     compile deps.other.rxlifecycle
     compile deps.other.rxrelay
     compile deps.other.javaxInject
-    compile deps.other.raveCompiler
+    annotationProcessor deps.other.raveCompiler
     compile deps.other.utils
     compile deps.other.design
     compile deps.other.crittercism
