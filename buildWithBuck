@@ -3,4 +3,4 @@
 export SKIP_OKBUCK=true
 
 SKIP_OKBUCK= ./buckw --version
-./buckw targets --type android_binary | xargs ./buckw build
+./buckw targets //... --type android_binary | xargs ./buckw build
