@@ -1,6 +1,6 @@
 def versions = [
         androidToolsVersion: '26.3.0-alpha01',
-        daggerVersion      : '2.12',
+        daggerVersion      : '2.16',
         leakCanaryVersion  : '1.5',
         playServicesVersion: '10.0.1',
         roasterVersion     : '2.18.7.Final',
