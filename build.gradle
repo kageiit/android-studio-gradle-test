@@ -149,11 +149,11 @@ def ENTRIES_TO_DELETE = [
     'asm-license.txt',
 ].join(" ")
 def ARCHIVES = [
-    '.okbuck/cache/org.hamcrest.hamcrest-core-1.3.jar',
-    '.okbuck/cache/org.hamcrest.hamcrest-library-1.3.jar',
-    '.okbuck/cache/org.hamcrest.hamcrest-integration-1.3.jar',
-    '.okbuck/cache/org.mockito.mockito-core-1.10.19.jar',
-    '.okbuck/cache/org.assertj.assertj-core-1.7.1.jar',
+    '.okbuck/cache/org.hamcrest--hamcrest-core--1.3.jar',
+    '.okbuck/cache/org.hamcrest--hamcrest-library--1.3.jar',
+    '.okbuck/cache/org.hamcrest--hamcrest-integration--1.3.jar',
+    '.okbuck/cache/org.mockito--mockito-core--1.10.19.jar',
+    '.okbuck/cache/org.assertj--assertj-core--1.7.1.jar',
 ]
 gradle.buildFinished {
     ARCHIVES.each { archive ->
