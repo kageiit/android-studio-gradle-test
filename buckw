@@ -188,7 +188,7 @@ setupBuckBinary ( ) {
     fi
 
     # No existing daemon or clean project root
-    BUCKD_VERSION_FILE="$PROJECT_ROOT/.buckd/buckd.version"
+    BUCKD_VERSION_FILE="$SCRIPT_DIR/.buckd/buckd.version"
     if [[ ! -f "$BUCKD_VERSION_FILE" ]]; then
         killBuckDaemons
     else
@@ -235,7 +235,7 @@ setupBuckRun ( ) {
 # Handle parameters and flags
 handleParams ( ) {
    # Go directly to the kill command, help command, or --help option. Do not run okbuck.
-   if [[ "kill" == $1 || "help" == $1 || $@ == *"--help"* || $@ == *"-h"* ]]; then
+   if [[ "kill" == $1 || "help" == $1 || $@ == *"--help"* || $@ == *" -h "* ]]; then
       SKIP_OKBUCK=true
    fi
 }

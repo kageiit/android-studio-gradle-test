@@ -5,8 +5,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha09'
-        classpath 'com.uber:okbuck:0.33.0-alpha02'
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha01'
+        classpath 'com.uber:okbuck:0.40.0'
     }
 }
 
@@ -124,7 +124,7 @@ okbuck {
     }
     extraDefs += project.file('DEFS')
 
-    buckBinary = "com.github.facebook:buck:82d7aeeedf8f6f02e588ba47e0401851abb951eb@pex"
+    buckBinary = "com.github.facebook:buck:2bc390c5c9100a2ff282ee0c53f4346138c747a9@pex"
 
     afterEvaluate {
         dependencies {
