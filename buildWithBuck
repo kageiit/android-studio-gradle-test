@@ -2,5 +2,9 @@
 
 export SKIP_OKBUCK=true
 
+if [ ! -z "$TRAVIS" ]; then
+    ./gradlew addSources
+fi
+
 SKIP_OKBUCK= ./buckw --version
 ./buckw targets //... --type android_binary | xargs ./buckw build
